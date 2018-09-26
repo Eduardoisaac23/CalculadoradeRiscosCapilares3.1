@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "712428712207",
+    "firebase_url": "https://salao-mais-calculadora-riscos.firebaseio.com",
+    "project_id": "salao-mais-calculadora-riscos",
+    "storage_bucket": "salao-mais-calculadora-riscos.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:712428712207:android:984a038ae0c16746",
+        "android_client_info": {
+          "package_name": "com.softwaresa.salaomais"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "712428712207-b639h4qavp2lnclis7p79up6tgfnr86h.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.softwaresa.salaomais",
+            "certificate_hash": "6ae57c8d3f784b2054b77c89242fdc76c18d2691"
+          }
+        },
+        {
+          "client_id": "712428712207-3g5vgpallrross5b35l3if2t6o6ff303.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAo1gwYV6W3z09QuE0li6n7rhn2xPVCAR4"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "712428712207-3g5vgpallrross5b35l3if2t6o6ff303.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

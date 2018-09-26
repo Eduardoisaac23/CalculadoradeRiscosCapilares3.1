@@ -2,10 +2,6 @@ package com.softwaresa.salaomais.Helper;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.graphics.PorterDuff;
-import android.view.Display;
-
-import com.google.android.gms.flags.impl.SharedPreferencesFactory;
 
 public class Preferencias {
 
