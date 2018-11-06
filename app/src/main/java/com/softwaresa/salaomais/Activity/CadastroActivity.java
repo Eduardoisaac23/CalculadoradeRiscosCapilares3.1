@@ -107,8 +107,8 @@ public class CadastroActivity extends AppCompatActivity {
 
                  //abrirLogin();
 
-             }else if (!editTEmail.getText().toString().equals("") && !editTSenha.getText().toString().equals("")
-                     && !editTNome.getText().toString().equals("") && !editTConSenha.getText().toString().equals("")){
+             }else if (!editTEmail.getText().toString().equals("") || !editTSenha.getText().toString().equals("")
+                     || !editTNome.getText().toString().equals("") || !editTConSenha.getText().toString().equals("")){
 
                  Toast.makeText(CadastroActivity.this,"Preencha todos os campos.", Toast.LENGTH_LONG).show();
 

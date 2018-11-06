@@ -53,7 +53,7 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                if(!editTEmail.getText().toString().equals("") && !editTSenha.getText().toString().equals("")){
+                if(!editTEmail.getText().toString().equals("") || !editTSenha.getText().toString().equals("")){
 
                     usuarios = new Usuarios();
                     usuarios.setEmail(editTEmail.getText().toString());
