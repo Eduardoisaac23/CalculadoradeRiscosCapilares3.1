@@ -15,14 +15,21 @@ public class Usuarios {
     private String recuperar;
     private String email;
 
+
+
+    private String sexo;
+
     public Usuarios() {
 
     }
 
+
+
+
     public void salvar(){
 
         DatabaseReference referneciasFirebase = ConfiguracaoFirebase.getFirebase();
-        referneciasFirebase.child("usuário").child(String.valueOf(getId())).setValue(this);
+        referneciasFirebase.child("usuario").child("usuario").child(String.valueOf(getId())).setValue(this);
     }
 
     @Exclude
@@ -36,6 +43,7 @@ public class Usuarios {
         hashMapUsuarios.put("senha",getSenha());
         hashMapUsuarios.put("recuperar",getRecuperar());
         hashMapUsuarios.put("email",getEmail());
+        hashMapUsuarios.put("sexo",getSexo()) ;
 
         return hashMapUsuarios;
     }
@@ -78,5 +86,14 @@ public class Usuarios {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+
+    public String getSexo() {
+        return sexo;
+    }
+
+    public void setSexo(String sexo) {
+        this.sexo = sexo;
     }
 }

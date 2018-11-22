@@ -29,7 +29,6 @@ public class RecuperarSenhaActivity extends AppCompatActivity {
 
         firebaseAuth = FirebaseAuth.getInstance();
         editEmailrecup = findViewById(R.id.editEmailrecup);
-        //convertido para variável local
         Button btnV = findViewById(R.id.btnV);
         Button btnRecup = findViewById(R.id.btnRecup);
 
@@ -39,7 +38,7 @@ public class RecuperarSenhaActivity extends AppCompatActivity {
 
                 Intent intentv = new Intent(RecuperarSenhaActivity.this, LoginActivity.class);
                 startActivity(intentv);
-                finish();
+
             }
         });
 

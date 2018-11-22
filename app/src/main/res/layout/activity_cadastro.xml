@@ -49,16 +49,16 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginLeft="8dp"
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
             android:layout_marginRight="8dp"
+            android:autofillHints=""
             android:ems="10"
             android:hint="@string/hint_email"
             android:inputType="textEmailAddress"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editTNome"
-            android:autofillHints="" />
+            app:layout_constraintTop_toBottomOf="@+id/editTNome" />
 
         <EditText
             android:id="@+id/editTSenha"
@@ -66,16 +66,16 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginLeft="8dp"
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
             android:layout_marginRight="8dp"
+            android:autofillHints=""
             android:ems="10"
             android:hint="@string/hint_senha"
             android:inputType="textPassword"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editTEmail"
-            android:autofillHints="" />
+            app:layout_constraintTop_toBottomOf="@+id/editTEmail" />
 
         <EditText
             android:id="@+id/editTConSenha"
@@ -83,14 +83,14 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginLeft="8dp"
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="8dp"
+            android:autofillHints=""
             android:ems="10"
             android:hint="@string/hint_confirmar_senha"
             android:inputType="textPassword"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editTSenha"
-            android:autofillHints="" />
+            app:layout_constraintTop_toBottomOf="@+id/editTSenha" />
 
         <Button
             android:id="@+id/btnSalvar"
@@ -98,17 +98,20 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginLeft="8dp"
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="68dp"
             android:layout_marginEnd="8dp"
             android:layout_marginRight="8dp"
+            android:layout_marginBottom="8dp"
             android:background="#4682B4"
+            android:elevation="5dp"
             android:text="@string/hint_salvar"
             android:textColor="#0000CD"
             android:textSize="23sp"
-            android:elevation="5dp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.51"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editTConSenha" />
+            app:layout_constraintTop_toBottomOf="@+id/rgSexo" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/floaActionBtnSalavr"
@@ -128,6 +131,35 @@
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="?attr/actionModeCloseDrawable"
             tools:srcCompat="?attr/actionModeCloseDrawable" />
+
+        <RadioGroup
+            android:id="@+id/rgSexo"
+            android:layout_width="315dp"
+            android:layout_height="32dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editTConSenha">
+
+            <RadioButton
+                android:id="@+id/rbFem"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Feminino" />
+
+            <RadioButton
+                android:id="@+id/rbMas"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Masculino" />
+        </RadioGroup>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

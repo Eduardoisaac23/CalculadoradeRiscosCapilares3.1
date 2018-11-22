@@ -6,7 +6,8 @@
     android:layout_height="match_parent"
     tools:context=".Activity.ProcedimentosActivity"
     android:background="#FFFFFF"
-    android:gravity="center">
+    android:gravity="center"
+    android:fillViewport="true">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -14,80 +15,73 @@
         android:background="#FFFFFF"
         tools:context=".Activity.LoginActivity">
 
-        <LinearLayout
-            android:id="@+id/linearLayoutSexo"
+
+       <!-- <LinearLayout
+            android:id="@+id/linearLayout2"
             android:layout_width="match_parent"
-            android:layout_height="113dp"
-            android:background="#c8aad2"
-            android:elevation="5dp"
-            android:gravity="center"
-            android:orientation="vertical"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-
-
-            <TextView
-                android:id="@+id/textVSexo"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Sexo"
-                android:textSize="22sp" />
-
-
-            <RadioGroup
-                android:id="@+id/rgSexo"
-                android:layout_width="211dp"
-                android:layout_height="33dp"
-                android:orientation="horizontal"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textVSexo">
-
-                <RadioButton
-                    android:id="@+id/rbFeminino"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Feminino"
-                    android:textSize="15sp" />
-
-                <RadioButton
-                    android:id="@+id/rbMasculino"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Masculino"
-                    android:textSize="15sp" />
-            </RadioGroup>
-        </LinearLayout>
-
-
-        <LinearLayout
-            android:id="@+id/layougesta"
-            android:layout_width="384dp"
-            android:layout_height="263dp"
+            android:layout_height="63dp"
             android:layout_marginStart="2dp"
             android:layout_marginLeft="2dp"
             android:layout_marginTop="2dp"
             android:layout_marginEnd="2dp"
             android:layout_marginRight="2dp"
             android:background="#c8aad2"
+            android:gravity="center"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+
+            <TextView
+                android:id="@+id/texVSexo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Sexo"
+                android:textSize="22sp" />
+
+            <RadioGroup
+                android:id="@+id/rgSexo"
+                android:layout_width="245dp"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:visibility="visible">
+
+                <RadioButton
+                    android:id="@+id/rbFemi"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Feminino" />
+
+                <RadioButton
+                    android:id="@+id/rbMasc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Masculino" />
+            </RadioGroup>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layougesta"
+            android:layout_width="384dp"
+            android:layout_height="61dp"
+            android:layout_marginStart="2dp"
+            android:layout_marginLeft="2dp"
+            android:layout_marginTop="1dp"
+            android:layout_marginEnd="2dp"
+            android:layout_marginRight="2dp"
+            android:background="#c8aad2"
             android:elevation="5dp"
             android:gravity="center"
             android:orientation="vertical"
-            android:visibility="visible"
+            android:visibility="gone"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/linearLayoutSexo">
-
-            <ImageView
-                android:id="@+id/imageVgestante"
-                android:layout_width="177dp"
-                android:layout_height="126dp"
-                android:visibility="visible" />
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
 
             <TextView
                 android:id="@+id/txvGestante"
@@ -99,7 +93,7 @@
                 android:visibility="visible" />
 
             <RadioGroup
-                android:id="@+id/rgGestante"
+                android:id="@+id/Gestante"
                 android:layout_width="210dp"
                 android:layout_height="32dp"
                 android:orientation="horizontal"
@@ -126,16 +120,16 @@
         <LinearLayout
             android:id="@+id/linearLayoutProb"
             android:layout_width="415dp"
-            android:layout_height="235dp"
+            android:layout_height="133dp"
             android:layout_marginStart="2dp"
             android:layout_marginLeft="2dp"
-            android:layout_marginTop="2dp"
+            android:layout_marginTop="1dp"
             android:layout_marginEnd="2dp"
             android:layout_marginRight="2dp"
             android:background="#c8aad2"
             android:gravity="center"
             android:orientation="horizontal"
-            android:visibility="visible"
+            android:visibility="gone"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
@@ -150,9 +144,9 @@
 
 
         <LinearLayout
-            android:id="@+id/linearLayout4"
+            android:id="@+id/linearLayotTipocabelo"
             android:layout_width="match_parent"
-            android:layout_height="36dp"
+            android:layout_height="48dp"
             android:layout_marginStart="2dp"
             android:layout_marginLeft="2dp"
             android:layout_marginTop="2dp"
@@ -160,7 +154,8 @@
             android:layout_marginRight="2dp"
             android:background="#c8aad2"
             android:orientation="vertical"
-            android:visibility="visible"
+            android:visibility="gone"
+            app:layout_constraintBottom_toTopOf="@+id/linearLayoutScroll"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/linearLayoutProb">
@@ -168,7 +163,7 @@
             <TextView
                 android:id="@+id/txvTipocabelo"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="55dp"
                 android:gravity="center"
                 android:text="Tipo de cabelo"
                 android:textSize="26dp" />
@@ -176,109 +171,93 @@
 
 
         <LinearLayout
-            android:id="@+id/linearLayoutTipCab"
+            android:id="@+id/linearLayoutScroll"
             android:layout_width="match_parent"
-            android:layout_height="66dp"
-            android:layout_gravity="center"
+            android:layout_height="122dp"
             android:layout_marginStart="2dp"
             android:layout_marginLeft="2dp"
-            android:layout_marginTop="2dp"
             android:layout_marginEnd="2dp"
             android:layout_marginRight="2dp"
             android:background="#c8aad2"
             android:orientation="vertical"
+            android:visibility="gone"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/linearLayout4">
-
-            <ImageView
-                android:id="@+id/imgTipocabelo"
-                android:layout_width="341dp"
-                android:layout_height="112dp"
-                android:layout_gravity="center" />
-        </LinearLayout>
-
-
-        <LinearLayout
-            android:id="@+id/linearLayout6"
-            android:layout_width="match_parent"
-            android:layout_height="132dp"
-            android:layout_marginStart="2dp"
-            android:layout_marginLeft="2dp"
-            android:layout_marginTop="2dp"
-            android:layout_marginEnd="2dp"
-            android:layout_marginRight="2dp"
-            android:orientation="vertical"
-            android:background="#c8aad2"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/linearLayoutTipCab">
+            app:layout_constraintTop_toBottomOf="@+id/linearLayotTipocabelo">
 
 
             <HorizontalScrollView
                 android:id="@+id/ScrollImagens"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
+                android:layout_height="134dp"
+                android:layout_marginTop="0dp"
                 android:background="#c8aad2">
 
 
                 <LinearLayout
+                    android:id="@+id/imgTcabelos"
                     android:layout_width="150dp"
                     android:layout_height="150dp"
                     android:background="#c8aad2"
                     android:orientation="horizontal">
 
                     <ImageView
-                        android:id="@+id/imgLiso1a"
-                        android:layout_width="150dp"
-                        android:layout_height="150dp"
-                        android:elevation="2dp" />
-
-
-                    <ImageView
                         android:id="@+id/imgOndulado2a"
                         android:layout_width="150dp"
                         android:layout_height="150dp"
-                        android:layout_weight="1" />
-
+                        android:layout_weight="1"
+                        android:src="@drawable/tipo2a" />
 
                     <ImageView
-                        android:id="@+id/imgCacheado3a"
+                        android:id="@+id/imgLiso1a"
                         android:layout_width="150dp"
                         android:layout_height="150dp"
-                        android:layout_weight="1" />
+                        android:elevation="2dp"
+                        android:src="@drawable/tipo1a" />
 
 
                     <ImageView
                         android:id="@+id/imgCrespo4b"
                         android:layout_width="150dp"
                         android:layout_height="150dp"
-                        android:layout_weight="1" />
+                        android:layout_weight="1"
+                        android:src="@drawable/tipo4a" />
+
+                    <ImageView
+                        android:id="@+id/imgCacheado3a"
+                        android:layout_width="150dp"
+                        android:layout_height="150dp"
+                        android:layout_weight="1"
+                        android:src="@drawable/tipo3a" />
 
                     <ImageView
                         android:id="@+id/imgLisom"
                         android:layout_width="150dp"
                         android:layout_height="150dp"
-                        android:elevation="2dp" />
+                        android:elevation="2dp"
+                        android:src="@drawable/lisom" />
 
                     <ImageView
                         android:id="@+id/imgonduladom"
                         android:layout_width="150dp"
                         android:layout_height="150dp"
-                        android:elevation="2dp" />
+                        android:elevation="2dp"
+                        android:src="@drawable/onduladom" />
 
                     <ImageView
                         android:id="@+id/imgcacheadom"
                         android:layout_width="150dp"
                         android:layout_height="150dp"
-                        android:elevation="2dp" />
+                        android:elevation="2dp"
+                        android:src="@drawable/cacheadom" />
 
                     <ImageView
                         android:id="@+id/imgcrespom"
                         android:layout_width="150dp"
                         android:layout_height="150dp"
-                        android:elevation="2dp" />
+                        android:elevation="2dp"
+                        android:src="@drawable/crespom" />
+
                 </LinearLayout>
             </HorizontalScrollView>
         </LinearLayout>
@@ -287,23 +266,23 @@
         <LinearLayout
             android:id="@+id/linearLayout"
             android:layout_width="match_parent"
-            android:layout_height="72dp"
+            android:layout_height="68dp"
             android:layout_marginStart="2dp"
             android:layout_marginLeft="2dp"
             android:layout_marginTop="2dp"
             android:layout_marginEnd="2dp"
             android:layout_marginRight="2dp"
+            android:background="#c8aad2"
             android:gravity="center"
             android:orientation="vertical"
-            android:background="#c8aad2"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/linearLayout6">
+            app:layout_constraintTop_toBottomOf="@+id/linearLayoutScroll">
 
             <TextView
                 android:id="@+id/txtvquimitrans"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="39dp"
                 android:gravity="center"
                 android:text="Possui química de tranformação?"
                 android:textSize="21dp" />
@@ -344,28 +323,30 @@
             android:layout_marginTop="2dp"
             android:layout_marginEnd="2dp"
             android:layout_marginRight="2dp"
+            android:background="#c8aad2"
             android:gravity="center"
             android:orientation="vertical"
-            android:background="#c8aad2"
+            android:visibility="gone"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/linearLayout">
 
-            <TextView
-                android:id="@+id/txtquiAtual"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="Selecione a química atual"
-                android:textSize="21dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                tools:layout_editor_absoluteY="97dp" />
-
             <RadioGroup
                 android:id="@+id/rgQuiAtual"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:visibility="visible">
+
+                <TextView
+                    android:id="@+id/txtquiAtual"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="Selecione a química atual"
+                    android:textSize="21dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    tools:layout_editor_absoluteY="97dp" />
 
                 <RadioButton
                     android:id="@+id/rbAli2"
@@ -379,7 +360,7 @@
                     android:id="@+id/rbCol2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Coloracao"
+                    android:text="Coloração"
                     tools:layout_editor_absoluteX="146dp"
                     tools:layout_editor_absoluteY="306dp" />
 
@@ -387,7 +368,7 @@
                     android:id="@+id/rbDes2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Descoloracao"
+                    android:text="Descoloração"
                     tools:layout_editor_absoluteX="55dp"
                     tools:layout_editor_absoluteY="306dp" />
 
@@ -409,20 +390,22 @@
 
 
             </RadioGroup>
+
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/linearLayout3"
+            android:id="@+id/lineQiumiDese"
             android:layout_width="match_parent"
             android:layout_height="190dp"
             android:layout_marginStart="2dp"
             android:layout_marginLeft="2dp"
-            android:layout_marginTop="2dp"
+            android:layout_marginTop="1dp"
             android:layout_marginEnd="2dp"
             android:layout_marginRight="2dp"
+            android:background="#c8aad2"
             android:gravity="center"
             android:orientation="vertical"
-            android:background="#c8aad2"
+            android:visibility="gone"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/linearLayoutquimAtual">
@@ -440,7 +423,8 @@
             <RadioGroup
                 android:id="@+id/rgQuiDse"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:visibility="visible">
 
 
                 <RadioButton
@@ -455,7 +439,7 @@
                     android:id="@+id/rbCol1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Coloracao"
+                    android:text="Coloração"
                     tools:layout_editor_absoluteX="146dp"
                     tools:layout_editor_absoluteY="306dp" />
 
@@ -463,7 +447,7 @@
                     android:id="@+id/rbDes1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Descoloracao"
+                    android:text="Descoloração"
                     tools:layout_editor_absoluteX="55dp"
                     tools:layout_editor_absoluteY="306dp" />
 
@@ -487,7 +471,7 @@
 
 
         <LinearLayout
-            android:id="@+id/linearLayout7"
+            android:id="@+id/linearLayoutBase"
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:layout_marginStart="2dp"
@@ -495,12 +479,13 @@
             android:layout_marginTop="2dp"
             android:layout_marginEnd="2dp"
             android:layout_marginRight="2dp"
+            android:background="#c8aad2"
             android:gravity="center"
             android:orientation="vertical"
-            android:background="#c8aad2"
+            android:visibility="gone"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/linearLayout3">
+            app:layout_constraintTop_toBottomOf="@+id/lineQiumiDese">
 
 
             <TextView
@@ -514,6 +499,7 @@
                 tools:layout_editor_absoluteY="599dp" />
 
             <RadioGroup
+                android:id="@+id/rgBase"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
@@ -545,13 +531,13 @@
             android:layout_marginTop="2dp"
             android:layout_marginEnd="2dp"
             android:layout_marginRight="2dp"
+            android:background="#c8aad2"
             android:gravity="center"
             android:orientation="vertical"
-            android:background="#c8aad2"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/linearLayout7">
+            app:layout_constraintTop_toBottomOf="@+id/linearLayoutBase">
 
             <TextView
                 android:id="@+id/textvTesteToque"
@@ -566,9 +552,9 @@
             android:id="@+id/linearLayout10"
             android:layout_width="match_parent"
             android:layout_height="61dp"
+            android:background="#c8aad2"
             android:gravity="center"
             android:orientation="vertical"
-            android:background="#c8aad2"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/linearLayout8">
@@ -613,9 +599,9 @@
             android:layout_marginTop="2dp"
             android:layout_marginEnd="2dp"
             android:layout_marginRight="2dp"
+            android:background="#c8aad2"
             android:gravity="center"
             android:orientation="vertical"
-            android:background="#c8aad2"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/linearLayout10">
@@ -645,9 +631,9 @@
             android:layout_marginTop="2dp"
             android:layout_marginEnd="2dp"
             android:layout_marginRight="2dp"
+            android:background="#c8aad2"
             android:gravity="center"
             android:orientation="vertical"
-            android:background="#c8aad2"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/linearLayout11">
@@ -682,22 +668,54 @@
             android:layout_marginTop="2dp"
             android:layout_marginEnd="2dp"
             android:layout_marginRight="2dp"
+            android:background="#c8aad2"
             android:gravity="right"
             android:orientation="vertical"
-            android:background="#c8aad2"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/linearLayout9">
 
-            <Button
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="center"
-                android:text="Calcular" />
+
+
+        </LinearLayout>-->
+
+
+        <Button
+            android:id="@+id/btnSalProId"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginStart="2dp"
+            android:layout_marginLeft="2dp"
+            android:layout_marginTop="2dp"
+            android:layout_marginEnd="2dp"
+            android:layout_marginRight="2dp"
+            android:layout_marginBottom="8dp"
+            android:gravity="center"
+            android:text="Salvar"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/contProcedimentoId" />
+
+        <LinearLayout
+            android:id="@+id/contProcedimentoId"
+            android:layout_width="368dp"
+            android:layout_height="437dp"
+            android:layout_marginStart="2dp"
+            android:layout_marginLeft="2dp"
+            android:layout_marginTop="2dp"
+            android:layout_marginEnd="2dp"
+            android:layout_marginRight="2dp"
+            android:layout_marginBottom="2dp"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toTopOf="@+id/btnSalProId"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
 
         </LinearLayout>
-
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

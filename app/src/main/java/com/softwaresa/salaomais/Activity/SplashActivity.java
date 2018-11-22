@@ -30,9 +30,8 @@ public class SplashActivity extends AppCompatActivity {
 
     private void mostrarLogin() {
         Intent intent = new Intent(
-                SplashActivity.this, LoginActivity.class
+                SplashActivity.this, ProcedimentosActivity.class
         );
         startActivity(intent);
-        finish();
     }
 }

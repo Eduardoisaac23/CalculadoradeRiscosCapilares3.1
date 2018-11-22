@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RadioButton;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -27,6 +28,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class CadastroActivity extends AppCompatActivity {
 
+
+     private RadioButton rbFem;
+     private RadioButton rbMas;
      private  EditText editTSenha;
      private  EditText editTEmail;
      private  EditText editTConSenha;
@@ -41,14 +45,14 @@ public class CadastroActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cadastro);
 
+        rbFem  = findViewById(R.id.rbFem);
+        rbMas  = findViewById(R.id.rbMas);
         editTNome = findViewById(R.id.editTNome);
         editTSenha = findViewById(R.id.editTSenha);
         editTEmail = findViewById(R.id.editTEmail);
         editTConSenha = findViewById(R.id.editTConSenha);
         btnSalvar = findViewById(R.id.btnSalvar);
         floaActionBtnSalavr = findViewById(R.id.floaActionBtnSalavr);
-
-
 
 
         btnSalvar.setOnClickListener(new View.OnClickListener() {
@@ -63,6 +67,11 @@ public class CadastroActivity extends AppCompatActivity {
 
                     cadastroDeUsuario();
 
+                    if(rbFem.isChecked()){
+                        usuarios.setSexo("Feminno");
+                    }else{
+                        usuarios.setSexo("Masculino");
+                    }
 
                 }else {
 

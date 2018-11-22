@@ -38,7 +38,7 @@ public class LoginActivity extends AppCompatActivity {
         editTEmail = findViewById(R.id.editTEmail);
         editTSenha = findViewById(R.id.editTSenha);
         textVCadastrar = findViewById(R.id.textVCadastrar);
-        textVRecSenha = findViewById(R.id.editTConSenha);
+        textVRecSenha = findViewById(R.id.textVRecSenha);
         btnLogar = findViewById(R.id.btnLogar);
 
         textVCadastrar.setOnClickListener(new View.OnClickListener() {
@@ -46,6 +46,14 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), CadastroActivity.class);
                 startActivity(intent);
+            }
+        });
+
+        textVRecSenha.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent abrirRecSenha = new Intent( LoginActivity.this,  RecuperarSenhaActivity .class );
+                startActivity(abrirRecSenha);
             }
         });
 
@@ -91,7 +99,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void telaHistorico(){
-        Intent intent = new  Intent(LoginActivity.this, HistoricoActivity.class);
+        Intent intent = new  Intent(LoginActivity.this, MenuActivity.class);
         startActivity(intent);
         finish();
   }

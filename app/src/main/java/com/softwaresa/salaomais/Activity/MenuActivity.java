@@ -33,7 +33,7 @@ public class MenuActivity extends AppCompatActivity
             @Override
             public void onClick(View view) {
 
-                Intent intentvoltar = new  Intent(MenuActivity.this, HistoricoActivity.class);
+                Intent intentvoltar = new  Intent(MenuActivity.this, ProcedimentosActivity.class);
                 startActivity(intentvoltar);
                 //Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                         //.setAction("Action", null).show();
