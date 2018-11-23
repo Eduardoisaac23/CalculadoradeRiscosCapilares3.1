@@ -39,4 +39,21 @@
     <string name="todo">TODO</string>
     <string name="rb_nao">Não</string>
     <string name="texV_tipo_de_cabelo_natural">Tipo de cabelo natural?</string>
+    <string name="txt_sexo">Sexo</string>
+    <string name="txt_feminino">Feminino</string>
+    <string name="txt_masculino">Masculino</string>
+    <string name="txt_gestante">Gestante</string>
+    <string name="txt_sim">Sim</string>
+    <string name="txt_Não1">Não</string>
+    <string name="txt_Avançar">Avançar</string>
+    <string name="txt_teste_de_toque">Teste de toque</string>
+    <string name="atxt_Apresentou_alergias">Apresentou alergias?</string>
+    <string name="txt_Apresentou_irritabilidade_capilar">Apresentou irritabilidade capilar?</string>
+    <string name="txt_Teste_de_mechas">Teste de mechas</string>
+    <string name="txt_Sim1">Sim</string>
+    <string name="txt_Não2">Não</string>
+    <string name="txt_Sim2">Sim</string>
+    <string name="txt_Não">Não</string>
+    <string name="txt_Tipo_de_cabelo_natural">Tipo de cabelo natural</string>
+    <string name="btn_Próximo">Próximo</string>
 </resources>
