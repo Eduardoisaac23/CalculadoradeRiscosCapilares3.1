@@ -27,9 +27,12 @@ public class QuimicaFragment extends Fragment {
 
 
     private LinearLayout linearquimdesejadal;
+    private FrameLayout frameBase;
     private FrameLayout frameQuimiPossui;
     private FrameLayout frameQuimi1;
+    private FrameLayout frameTempo;
     private RadioGroup rgQuimicatrans;
+    private RadioGroup rgTempoAplicacao;
     private RadioButton rbQuimiSim;
     private RadioButton rbQuimiNao;
     private FrameLayout frameQuimi2;
@@ -46,7 +49,9 @@ public class QuimicaFragment extends Fragment {
     private RadioButton rbCol1;
     private RadioButton rbDes1;
     private RadioButton rbPer1;
-    private FrameLayout frameBase;
+    private RadioButton rbTempoUm;
+    private RadioButton rbTempoDois;
+    private RadioButton rbTempoTres;
     private ToqueMechasFragment toqueMechasFragment;
     private ProcedimentosPreferencias procedimentosPreferencias;
 
@@ -75,6 +80,11 @@ public class QuimicaFragment extends Fragment {
         rgQuiAtual = viewquimica.findViewById(R.id.rgQuiAtualId);
         rgBaseigual = viewquimica.findViewById(R.id.rgBaseigualId);
         frameBase = viewquimica.findViewById(R.id.frameBaseId);
+        frameTempo = viewquimica.findViewById(R.id.frameTempoId);
+        rgTempoAplicacao = viewquimica.findViewById(R.id.rgTempoId);
+        rbTempoUm = viewquimica.findViewById(R.id.rbTempoUmId);
+        rbTempoDois = viewquimica.findViewById(R.id.rbTempoDoisId);
+        rbTempoTres = viewquimica.findViewById(R.id.rbTempotresId);
         rgQuimiDesejada = viewquimica.findViewById(R.id.rgQuimiDesejadaId);
         rbQuimiSim  = viewquimica.findViewById(R.id.rbQuimiSimId);
         rbQuimiNao  = viewquimica.findViewById(R.id.rbQuimiNaoid);
@@ -94,7 +104,7 @@ public class QuimicaFragment extends Fragment {
             public void onCheckedChanged(RadioGroup group, int checkedId) {
                 if (checkedId == R.id.rbQuimiSimId){
                     frameQuimiPossui.setVisibility(View.GONE);
-                    frameQuimi2.setVisibility(View.VISIBLE);
+                    frameTempo.setVisibility(View.VISIBLE);
 
 
                 }else if (checkedId  == R.id.rbQuimiNaoid){
@@ -180,34 +190,123 @@ public class QuimicaFragment extends Fragment {
 
                 if (checkedId  == R.id.rbAli2Id ){
 
-
-                    frameQuimi1.setVisibility(View.VISIBLE);
-                    frameQuimi2.setVisibility(View.GONE);
-
                     procedimentosPreferencias.setQuimicatual("alisamento");
 
+                    if(procedimentosPreferencias.getTempoAplicacao().equals("Seis mesea a um ano")){
+                        frameQuimi1.setVisibility(View.VISIBLE);
+                        frameQuimi2.setVisibility(View.GONE);
+                    }else {
+                        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+                        builder.setCancelable(true);
+                        builder.setTitle("ATENÇÂO!");
+                        builder.setMessage("Tempo não é suficiente para uma outa aplicação");
+
+                        builder.setNegativeButton("Sair", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+
+                                Intent intent = new  Intent(getActivity(),  MenuActivity.class );
+                                startActivity(intent);
+                                dialog.cancel();
+                            }
+                        });
+                        builder.show();
+
+                    }
 
                 }else if (checkedId == R.id.rbCol2Id){
 
-                    frameQuimi1.setVisibility(View.VISIBLE);
-                    frameQuimi2.setVisibility(View.GONE);
                     procedimentosPreferencias.setQuimicatual("coloracao");
+
+                    if (procedimentosPreferencias.getTempoAplicacao().equals("quinze dias a um mes")){
+                        frameQuimi1.setVisibility(View.VISIBLE);
+                        frameQuimi2.setVisibility(View.GONE);
+                    }else {
+                        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+                        builder.setCancelable(true);
+                        builder.setTitle("ATENÇÂO!");
+                        builder.setMessage("Tempo não é suficiente para uma outa aplicação");
+
+                        builder.setNegativeButton("Sair", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+
+                                Intent intent = new  Intent(getActivity(),  MenuActivity.class );
+                                startActivity(intent);
+                                dialog.cancel();
+                            }
+                        });
+                        builder.show();
+                    }
 
 
                 }else if (checkedId == R.id.rbDes2Id){
 
-                    frameQuimi1.setVisibility(View.VISIBLE);
-                    frameQuimi2.setVisibility(View.GONE);
                     procedimentosPreferencias.setQuimicatual("descoloracao");
 
+                    if (procedimentosPreferencias.getTempoAplicacao().equals("tres meses a a um ano") || (procedimentosPreferencias.getTempoAplicacao().equals("Seis mesea a um ano" ))){
+                        frameQuimi1.setVisibility(View.VISIBLE);
+                        frameQuimi2.setVisibility(View.GONE);
+                    }else {
+                        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+                        builder.setCancelable(true);
+                        builder.setTitle("ATENÇÂO!");
+                        builder.setMessage("Tempo não é suficiente para uma outa aplicação");
+
+                        builder.setNegativeButton("Sair", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+
+                                Intent intent = new  Intent(getActivity(),  MenuActivity.class );
+                                startActivity(intent);
+                                dialog.cancel();
+                            }
+                        });
+                        builder.show();
+                    }
 
                 }else {
-
-                    frameQuimi1.setVisibility(View.VISIBLE);
-                    frameQuimi2.setVisibility(View.GONE);
                     procedimentosPreferencias.setQuimicatual("permanente");
+                    if (procedimentosPreferencias.getTempoAplicacao().equals("Seis mesea a um ano")){
+                        frameQuimi1.setVisibility(View.VISIBLE);
+                        frameQuimi2.setVisibility(View.GONE);
+                    }else {
+                        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+                        builder.setCancelable(true);
+                        builder.setTitle("ATENÇÂO!");
+                        builder.setMessage("Tempo não é suficiente para uma outa aplicação");
 
+                        builder.setNegativeButton("Sair", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
 
+                                Intent intent = new  Intent(getActivity(),  MenuActivity.class );
+                                startActivity(intent);
+                                dialog.cancel();
+                            }
+                        });
+                        builder.show();
+                    }
+
+                }
+            }
+        });
+
+        rgTempoAplicacao.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                if (checkedId == R.id.rbTempoUmId){
+                    procedimentosPreferencias.setTempoAplicacao("Seis mesea a um ano");
+                    frameQuimi2.setVisibility(View.VISIBLE);
+                    frameTempo.setVisibility(View.GONE);
+                }else if (checkedId == R.id.rbTempoDoisId){
+                    procedimentosPreferencias.setTempoAplicacao("tres meses a a um ano");
+                    frameQuimi2.setVisibility(View.VISIBLE);
+                    frameTempo.setVisibility(View.GONE);
+                }else {
+                    procedimentosPreferencias.setTempoAplicacao("quinze dias a um mes");
+                    frameQuimi2.setVisibility(View.VISIBLE);
+                    frameTempo.setVisibility(View.GONE);
                 }
             }
         });
@@ -231,7 +330,7 @@ public class QuimicaFragment extends Fragment {
                     AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
                     builder.setCancelable(true);
                     builder.setTitle("ATENÇÂO!");
-                    builder.setMessage("Risco muito alto não e indicado utilizar químicas diferentes!");
+                    builder.setMessage("As químicas que você selecionou são incompatíveis");
 
                     builder.setNegativeButton("Sair", new DialogInterface.OnClickListener() {
                         @Override
