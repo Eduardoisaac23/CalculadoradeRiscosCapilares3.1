@@ -11,6 +11,7 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
@@ -25,6 +26,7 @@ public class ToqueMechasFragment extends Fragment {
 
     private  ToqueMechasFragment toqueMechasFragment;
     private ProcedimentosPreferencias procedimentosPreferencias;
+    private FrameLayout frametesteMechas;
     private RadioGroup rgAlergial;
     private RadioGroup rgtesteMechas;
     private RadioButton rbAlergSim;
@@ -48,6 +50,7 @@ public class ToqueMechasFragment extends Fragment {
        final View viewToqueMechas = inflater.inflate(R.layout.fragment_toque_mechas, container, false);
 
        toqueMechasFragment = new ToqueMechasFragment();
+        frametesteMechas= viewToqueMechas.findViewById(R.id.frametesteMechasId);
         procedimentosPreferencias  = new ProcedimentosPreferencias(getActivity());
         rgAlergial = viewToqueMechas.findViewById(R.id.rgAlergialId);
         rgtesteMechas = viewToqueMechas.findViewById(R.id.rgtesteMechasId);
@@ -66,7 +69,7 @@ public class ToqueMechasFragment extends Fragment {
                     AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
                     builder.setCancelable(true);
                     builder.setTitle("ATENÇÂO!");
-                    builder.setMessage("Risco muito alto não e indicado utilizar essa determinada  químicas !");
+                    builder.setMessage("Você apresenta alergias, não recomendamos que faça esse procedimento.");
 
                     builder.setNegativeButton("Sair", new DialogInterface.OnClickListener() {
                         @Override
@@ -79,8 +82,43 @@ public class ToqueMechasFragment extends Fragment {
                     });
                     builder.show();
 
-                }else if (checkedId == R.id.rbBIgualNaoId){
+                }else if (checkedId == R.id.rbAlergNaoId){
+
                     procedimentosPreferencias.setAlergia(false);
+
+                    frametesteMechas.setVisibility(View.VISIBLE);
+
+                }
+            }
+        });
+
+        rgtesteMechas.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                if (checkedId == R.id.rbtesteMechasSimId){
+
+                    procedimentosPreferencias.setTestemechas(true);
+
+                    AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+                    builder.setCancelable(true);
+                    builder.setTitle("ATENÇÂO!");
+                    builder.setMessage("Seu cabelo não passou no teste de mecha, não recomendamos esse procedimento");
+
+                    builder.setNegativeButton("Sair", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+
+                            Intent intent = new  Intent(getActivity(),  MenuActivity.class );
+                            startActivity(intent);
+                            dialog.cancel();
+                        }
+                    });
+                    builder.show();
+
+                }else if (checkedId ==  R.id.rbtesteMechasNaoId){
+
+                    procedimentosPreferencias.setTestemechas(false);
+
 
                 }
             }

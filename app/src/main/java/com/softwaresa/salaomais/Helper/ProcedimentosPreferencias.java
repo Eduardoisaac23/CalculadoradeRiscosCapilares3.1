@@ -22,8 +22,11 @@ public class ProcedimentosPreferencias {
     private String quimicatual;// Alisamento, colorção, Descoloração, Permanente
     private boolean baseigual;    // Sim Não
     private boolean alergia;     // sim Não
-    private String testemechas;// escamação, coçeiras, irritabilidade capilar
+    private boolean testemechas;// escamação, coçeiras, irritabilidade capilar
 
+
+
+    private String tempoaplicacao;
 
     private int contaBotaoSexo = 0;
 
@@ -108,12 +111,12 @@ public class ProcedimentosPreferencias {
         editor.commit();
     }
 
-    public String getTestemechas() {
-        return preferences.getString("Teste de mechas", "");
+    public boolean getTestemechas() {
+        return preferences.getBoolean("Teste de mechas", false);
     }
 
-    public void setTestemechas(String testemechas) {
-        editor.putString("Teste de mecha", testemechas);
+    public void setTestemechas(boolean testemechas) {
+        editor.putBoolean("Teste de mecha", testemechas);
         editor.commit();
     }
 
@@ -125,6 +128,33 @@ public class ProcedimentosPreferencias {
     public void setContaBotaoSexo(int contaBotaoSexo) {
         editor.putInt("Botao Sexo",contaBotaoSexo );
         editor.commit();
+    }
+    public String getTempoAplicacao() {
+        return preferences.getString("Aplicacao","");
+    }
+
+    public void setTempoAplicacao(String aplicacao) {
+        editor.putString("Aplicacao", aplicacao);
+        editor.commit();
+    }
+
+    public void apagarPreferecias(){
+        editor.putString("Sexo", "");
+        editor.putBoolean("Gestante", false);
+        editor.putString("Tipo cabelo","");
+        editor.putString("Quimica desejada", "");
+        editor.putString("Aplicacao", "");
+        editor.putString("Quimica anterior", "");
+        editor.putBoolean("Base igual", false);
+        editor.putBoolean("alergia", false);
+        editor.putBoolean("Teste de mecha", false);
+        editor.commit();
+
+
+
+
+
+
     }
 }
 

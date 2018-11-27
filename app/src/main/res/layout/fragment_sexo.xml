@@ -6,18 +6,14 @@
     android:layout_height="match_parent"
     android:layout_gravity="center"
     android:id="@+id/ConFundoId"
+    android:background="#c8aad2"
     tools:context=".Fragmentos.SexoFragment">
 
     <FrameLayout
         android:id="@+id/sexoFrameId"
         android:layout_width="0dp"
-        android:layout_height="133dp"
-        android:layout_marginStart="2dp"
-        android:layout_marginLeft="2dp"
-        android:layout_marginTop="2dp"
-        android:layout_marginEnd="2dp"
-        android:layout_marginRight="2dp"
-        android:layout_marginBottom="2dp"
+        android:layout_height="599dp"
+        android:background="#c8aad2"
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -26,13 +22,14 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="129dp"
+            android:layout_height="440dp"
             android:layout_marginStart="2dp"
             android:layout_marginLeft="2dp"
             android:layout_marginTop="2dp"
             android:layout_marginEnd="2dp"
             android:layout_marginRight="2dp"
             android:layout_marginBottom="2dp"
+            android:background="#c8aad2"
             android:gravity="center"
             android:orientation="vertical"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -52,7 +49,7 @@
                 android:layout_marginRight="2dp"
                 android:gravity="center"
                 android:padding="8dp"
-                android:text="Sexo"
+                android:text="@string/txt_sexo"
                 android:textSize="22sp"
                 android:visibility="visible"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -82,14 +79,14 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Feminino" />
+                    android:text="@string/txt_feminino" />
 
                 <RadioButton
                     android:id="@+id/rbMasc"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Masculino" />
+                    android:text="@string/txt_masculino" />
             </RadioGroup>
 
 
@@ -99,13 +96,14 @@
     <FrameLayout
         android:id="@+id/gestanteFrameId"
         android:layout_width="0dp"
-        android:layout_height="152dp"
+        android:layout_height="0dp"
         android:layout_marginStart="2dp"
         android:layout_marginLeft="2dp"
         android:layout_marginTop="2dp"
         android:layout_marginEnd="2dp"
         android:layout_marginRight="2dp"
         android:layout_marginBottom="2dp"
+        android:background="#F5F5F5"
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -114,13 +112,14 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="145dp"
+            android:layout_height="match_parent"
             android:layout_marginStart="2dp"
             android:layout_marginLeft="2dp"
             android:layout_marginTop="2dp"
             android:layout_marginEnd="2dp"
             android:layout_marginRight="2dp"
             android:layout_marginBottom="2dp"
+            android:background="#c8aad2"
             android:gravity="center"
             android:orientation="vertical"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -140,7 +139,7 @@
                 android:layout_marginRight="2dp"
                 android:gravity="center"
                 android:padding="8dp"
-                android:text="Gestante"
+                android:text="@string/txt_gestante"
                 android:textSize="22sp"
                 android:visibility="visible"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -169,14 +168,14 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Sim" />
+                    android:text="@string/txt_sim" />
 
                 <RadioButton
                     android:id="@+id/rbNaoGes"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Não" />
+                    android:text="@string/txt_Não" />
             </RadioGroup>
 
 
@@ -193,7 +192,8 @@
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginBottom="8dp"
-        android:text="Avançar"
+        android:text="@string/txt_Avançar"
+        android:background="#c8aad2"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"

@@ -56,9 +56,6 @@ public class QuimicaFragment extends Fragment {
     private ProcedimentosPreferencias procedimentosPreferencias;
 
 
-
-
-
     public QuimicaFragment() {
         // Required empty public constructor
     }
@@ -73,9 +70,9 @@ public class QuimicaFragment extends Fragment {
 
 
         View viewquimica = inflater.inflate(R.layout.fragment_quimica, container, false);
-        frameQuimiPossui =  viewquimica.findViewById(R.id.frameQuimiPossuiId);
+        frameQuimiPossui = viewquimica.findViewById(R.id.frameQuimiPossuiId);
         frameQuimi1 = viewquimica.findViewById(R.id.frameQuimi1Id);
-        frameQuimi2  = viewquimica.findViewById(R.id.frameQuimi2Id);
+        frameQuimi2 = viewquimica.findViewById(R.id.frameQuimi2Id);
         rgQuimicatrans = viewquimica.findViewById(R.id.rgQuimicatransId);
         rgQuiAtual = viewquimica.findViewById(R.id.rgQuiAtualId);
         rgBaseigual = viewquimica.findViewById(R.id.rgBaseigualId);
@@ -86,99 +83,107 @@ public class QuimicaFragment extends Fragment {
         rbTempoDois = viewquimica.findViewById(R.id.rbTempoDoisId);
         rbTempoTres = viewquimica.findViewById(R.id.rbTempotresId);
         rgQuimiDesejada = viewquimica.findViewById(R.id.rgQuimiDesejadaId);
-        rbQuimiSim  = viewquimica.findViewById(R.id.rbQuimiSimId);
-        rbQuimiNao  = viewquimica.findViewById(R.id.rbQuimiNaoid);
-        rbBIgualNao  = viewquimica.findViewById(R.id.rbBIgualNaoId);
-        rbBIgualSim  = viewquimica.findViewById(R.id.rbBIgualSimId);
+        rbQuimiSim = viewquimica.findViewById(R.id.rbQuimiSimId);
+        rbQuimiNao = viewquimica.findViewById(R.id.rbQuimiNaoid);
+        rbBIgualNao = viewquimica.findViewById(R.id.rbBIgualNaoId);
+        rbBIgualSim = viewquimica.findViewById(R.id.rbBIgualSimId);
         rbAli1 = viewquimica.findViewById(R.id.rbAli1Id);
         rbAli2 = viewquimica.findViewById(R.id.rbAli2Id);
         rbCol1 = viewquimica.findViewById(R.id.rbCol1Id);
         rbCol2 = viewquimica.findViewById(R.id.rbCol2Id);
-        procedimentosPreferencias  = new ProcedimentosPreferencias(getActivity());
+        procedimentosPreferencias = new ProcedimentosPreferencias(getActivity());
 
         toqueMechasFragment = new ToqueMechasFragment();
 
-                rgQuimicatrans.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+        rgQuimicatrans.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
 
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
-                if (checkedId == R.id.rbQuimiSimId){
+                if (checkedId == R.id.rbQuimiSimId) {
                     frameQuimiPossui.setVisibility(View.GONE);
-                    frameTempo.setVisibility(View.VISIBLE);
+                    //frameTempo.setVisibility(View.VISIBLE);
+                    frameQuimi2.setVisibility(View.VISIBLE);
 
 
-                }else if (checkedId  == R.id.rbQuimiNaoid){
+                } else if (checkedId == R.id.rbQuimiNaoid) {
                     frameQuimi1.setVisibility(View.VISIBLE);
-                    frameQuimiPossui.setVisibility(View.GONE);
+                    //frameQuimiPossui.setVisibility(View.GONE);
+                    frameQuimi2.setVisibility(View.GONE);
 
                 }
             }
         });
 
 
-
         rgQuimiDesejada.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
 
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
-                if (checkedId == R.id.rbAli1Id ){
 
-                   procedimentosPreferencias.setQuimidesejada("alisamento");
+                //RaioButton Alisamento 1--------------------------------------------------------
 
-                    if (procedimentosPreferencias.getQuimicatual().equals("alisamento")){
-                        frameQuimi1.setVisibility(View.GONE);
-                        frameBase.setVisibility(View.VISIBLE);
-                    }else {
+                if (checkedId == R.id.rbAli1Id) {
 
-                        FragmentTransaction tansacaotoquemechas = getFragmentManager().beginTransaction();
-                        tansacaotoquemechas.replace(R.id.contProcedimentoId,toqueMechasFragment);
-                        tansacaotoquemechas.commit();
-                    }
+                    procedimentosPreferencias.setQuimidesejada("alisamento");
 
-                }else if (checkedId == R.id.rbCol1Id){
+
+                        if (procedimentosPreferencias.getQuimicatual().equals("alisamento")) {
+
+                            frameBase.setVisibility(View.VISIBLE);
+                        } else {
+                            FragmentTransaction tansacaotoquemechas = getFragmentManager().beginTransaction();
+                            tansacaotoquemechas.replace(R.id.contProcedimentoId, toqueMechasFragment);
+                            tansacaotoquemechas.commit();
+                        }
+
+
+                    //RaioButton Coloração 1------------------------------------------------------------------------
+
+                } else if (checkedId == R.id.rbCol1Id) {
 
                     procedimentosPreferencias.setQuimidesejada("coloracao");
 
-                    if (procedimentosPreferencias.getQuimicatual().equals("coloracao")){
-                        frameQuimi1.setVisibility(View.GONE);
-                        frameBase.setVisibility(View.VISIBLE);
-                    }else {
 
-                        FragmentTransaction tansacaotoquemechas = getFragmentManager().beginTransaction();
-                        tansacaotoquemechas.replace(R.id.contProcedimentoId,toqueMechasFragment);
-                        tansacaotoquemechas.commit();
+                        if (procedimentosPreferencias.getQuimicatual().equals("coloracao")) {
 
-                    }
+                            frameBase.setVisibility(View.VISIBLE);
+                        }
 
-                }else if (checkedId == R.id.rbDes1Id){
+
+                    //RaioButton Descoloração 1------------------------------------------------------------------
+
+                } else if (checkedId == R.id.rbDes1Id) {
 
                     procedimentosPreferencias.setQuimidesejada("descoloracao");
 
-                    if (procedimentosPreferencias.getQuimicatual().equals("descoloracao")){
-                        frameQuimi1.setVisibility(View.GONE);
+
+                    if (procedimentosPreferencias.getQuimicatual().equals("descoloracao")) {
                         frameBase.setVisibility(View.VISIBLE);
-                    }else {
+                    } else {
 
                         FragmentTransaction tansacaotoquemechas = getFragmentManager().beginTransaction();
-                        tansacaotoquemechas.replace(R.id.contProcedimentoId,toqueMechasFragment);
+                        tansacaotoquemechas.replace(R.id.contProcedimentoId, toqueMechasFragment);
                         tansacaotoquemechas.commit();
-
                     }
 
-                }else{
+                    //RaioButton Permanente 1------------------------------------------------------------
+
+                } else {
+
 
                     procedimentosPreferencias.setQuimidesejada("permanente");
 
-                    if (procedimentosPreferencias.getQuimicatual().equals("permanente")){
-                        frameQuimi1.setVisibility(View.GONE);
+                    if (procedimentosPreferencias.getQuimicatual().equals("permanente")) {
                         frameBase.setVisibility(View.VISIBLE);
-                    }else {
 
+                    } else {
+                        frameBase.setVisibility(View.GONE);
                         FragmentTransaction tansacaotoquemechas = getFragmentManager().beginTransaction();
-                        tansacaotoquemechas.replace(R.id.contProcedimentoId,toqueMechasFragment);
+                        tansacaotoquemechas.replace(R.id.contProcedimentoId, toqueMechasFragment);
                         tansacaotoquemechas.commit();
-
                     }
+
+
                 }
             }
         });
@@ -188,105 +193,36 @@ public class QuimicaFragment extends Fragment {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
 
-                if (checkedId  == R.id.rbAli2Id ){
+                if (checkedId == R.id.rbAli2Id) {
 
                     procedimentosPreferencias.setQuimicatual("alisamento");
+                    //frameQuimi1.setVisibility(View.VISIBLE);
+                    frameTempo.setVisibility(View.VISIBLE);
+                    frameQuimi2.setVisibility(View.GONE);
 
-                    if(procedimentosPreferencias.getTempoAplicacao().equals("Seis mesea a um ano")){
-                        frameQuimi1.setVisibility(View.VISIBLE);
-                        frameQuimi2.setVisibility(View.GONE);
-                    }else {
-                        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-                        builder.setCancelable(true);
-                        builder.setTitle("ATENÇÂO!");
-                        builder.setMessage("Tempo não é suficiente para uma outa aplicação");
 
-                        builder.setNegativeButton("Sair", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-
-                                Intent intent = new  Intent(getActivity(),  MenuActivity.class );
-                                startActivity(intent);
-                                dialog.cancel();
-                            }
-                        });
-                        builder.show();
-
-                    }
-
-                }else if (checkedId == R.id.rbCol2Id){
+                } else if (checkedId == R.id.rbCol2Id) {
 
                     procedimentosPreferencias.setQuimicatual("coloracao");
-
-                    if (procedimentosPreferencias.getTempoAplicacao().equals("quinze dias a um mes")){
-                        frameQuimi1.setVisibility(View.VISIBLE);
-                        frameQuimi2.setVisibility(View.GONE);
-                    }else {
-                        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-                        builder.setCancelable(true);
-                        builder.setTitle("ATENÇÂO!");
-                        builder.setMessage("Tempo não é suficiente para uma outa aplicação");
-
-                        builder.setNegativeButton("Sair", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-
-                                Intent intent = new  Intent(getActivity(),  MenuActivity.class );
-                                startActivity(intent);
-                                dialog.cancel();
-                            }
-                        });
-                        builder.show();
-                    }
+                    // frameQuimi1.setVisibility(View.VISIBLE);
+                    frameTempo.setVisibility(View.VISIBLE);
+                    frameQuimi2.setVisibility(View.GONE);
 
 
-                }else if (checkedId == R.id.rbDes2Id){
+                } else if (checkedId == R.id.rbDes2Id) {
 
                     procedimentosPreferencias.setQuimicatual("descoloracao");
+                    //frameQuimi1.setVisibility(View.VISIBLE);
+                    frameTempo.setVisibility(View.VISIBLE);
+                    frameQuimi2.setVisibility(View.GONE);
 
-                    if (procedimentosPreferencias.getTempoAplicacao().equals("tres meses a a um ano") || (procedimentosPreferencias.getTempoAplicacao().equals("Seis mesea a um ano" ))){
-                        frameQuimi1.setVisibility(View.VISIBLE);
-                        frameQuimi2.setVisibility(View.GONE);
-                    }else {
-                        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-                        builder.setCancelable(true);
-                        builder.setTitle("ATENÇÂO!");
-                        builder.setMessage("Tempo não é suficiente para uma outa aplicação");
 
-                        builder.setNegativeButton("Sair", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
+                } else {
 
-                                Intent intent = new  Intent(getActivity(),  MenuActivity.class );
-                                startActivity(intent);
-                                dialog.cancel();
-                            }
-                        });
-                        builder.show();
-                    }
-
-                }else {
                     procedimentosPreferencias.setQuimicatual("permanente");
-                    if (procedimentosPreferencias.getTempoAplicacao().equals("Seis mesea a um ano")){
-                        frameQuimi1.setVisibility(View.VISIBLE);
-                        frameQuimi2.setVisibility(View.GONE);
-                    }else {
-                        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-                        builder.setCancelable(true);
-                        builder.setTitle("ATENÇÂO!");
-                        builder.setMessage("Tempo não é suficiente para uma outa aplicação");
-
-                        builder.setNegativeButton("Sair", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-
-                                Intent intent = new  Intent(getActivity(),  MenuActivity.class );
-                                startActivity(intent);
-                                dialog.cancel();
-                            }
-                        });
-                        builder.show();
-                    }
+                    // frameQuimi1.setVisibility(View.VISIBLE);
+                    frameTempo.setVisibility(View.VISIBLE);
+                    frameQuimi2.setVisibility(View.GONE);
 
                 }
             }
@@ -295,17 +231,23 @@ public class QuimicaFragment extends Fragment {
         rgTempoAplicacao.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
-                if (checkedId == R.id.rbTempoUmId){
-                    procedimentosPreferencias.setTempoAplicacao("Seis mesea a um ano");
-                    frameQuimi2.setVisibility(View.VISIBLE);
+
+                if (checkedId == R.id.rbTempoUmId) {
+
+                    procedimentosPreferencias.setTempoAplicacao("seis meses a um ano");
+                    frameQuimi1.setVisibility(View.VISIBLE);
                     frameTempo.setVisibility(View.GONE);
-                }else if (checkedId == R.id.rbTempoDoisId){
-                    procedimentosPreferencias.setTempoAplicacao("tres meses a a um ano");
-                    frameQuimi2.setVisibility(View.VISIBLE);
+
+                } else if (checkedId == R.id.rbTempoDoisId) {
+
+                    procedimentosPreferencias.setTempoAplicacao("tres meses a cinco meses");
+                    frameQuimi1.setVisibility(View.VISIBLE);
                     frameTempo.setVisibility(View.GONE);
-                }else {
+
+                } else {
+
                     procedimentosPreferencias.setTempoAplicacao("quinze dias a um mes");
-                    frameQuimi2.setVisibility(View.VISIBLE);
+                    frameQuimi1.setVisibility(View.VISIBLE);
                     frameTempo.setVisibility(View.GONE);
                 }
             }
@@ -314,15 +256,15 @@ public class QuimicaFragment extends Fragment {
         rgBaseigual.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
-                if (checkedId == R.id.rbBIgualSimId){
+                if (checkedId == R.id.rbBIgualSimId) {
 
                     procedimentosPreferencias.setBaseigual(true);
                     //Toast.makeText(getActivity(), String.valueOf(checkedId), Toast.LENGTH_SHORT).show();
                     FragmentTransaction tansacaotoquemechas = getFragmentManager().beginTransaction();
-                    tansacaotoquemechas.replace(R.id.contProcedimentoId,toqueMechasFragment);
+                    tansacaotoquemechas.replace(R.id.contProcedimentoId, toqueMechasFragment);
                     tansacaotoquemechas.commit();
 
-                }else if (checkedId == R.id.rbBIgualNaoId){
+                } else if (checkedId == R.id.rbBIgualNaoId) {
 
                     procedimentosPreferencias.setBaseigual(false);
                     //Toast.makeText(getActivity(), String.valueOf(checkedId), Toast.LENGTH_SHORT).show();
@@ -336,7 +278,7 @@ public class QuimicaFragment extends Fragment {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
 
-                            Intent intent = new  Intent(getActivity(),  MenuActivity.class );
+                            Intent intent = new Intent(getActivity(), MenuActivity.class);
                             startActivity(intent);
                             dialog.cancel();
                         }
@@ -350,5 +292,49 @@ public class QuimicaFragment extends Fragment {
         return viewquimica;
     }
 
-
 }
+
+//Tempo da química
+                                 /* if (procedimentosPreferencias.getTempoAplicacao().equals("Seis mesea a um ano")){
+                              }else {
+                             AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+                              builder.setCancelable(true);
+                              builder.setTitle("ATENÇÂO!");
+                              builder.setMessage("Tempo não é suficiente para uma outa aplicação");
+                              builder.setNegativeButton("Sair", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+
+                                Intent intent = new  Intent(getActivity(),  MenuActivity.class );
+                                startActivity(intent);
+                                dialog.cancel();
+                            }
+                              });
+                                 builder.show();
+                              }*/
+
+
+/* if (procedimentosPreferencias.getTempoAplicacao().equals("tres meses a cinco meses")||
+                                (procedimentosPreferencias.getTempoAplicacao().equals("quinze dias a um mes"))){
+
+                            AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+                            builder.setCancelable(true);
+                            builder.setTitle("ATENÇÂO!");
+                            builder.setMessage("Tempo não é suficiente para uma outa aplicação");
+                            builder.setNegativeButton("Sair", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+
+                                    Intent intent = new  Intent(getActivity(),  MenuActivity.class );
+                                    startActivity(intent);
+                                    dialog.cancel();
+                                }
+                            });
+                            builder.show();
+
+                        }else {
+
+                            FragmentTransaction tansacaotoquemechas = getFragmentManager().beginTransaction();
+                            tansacaotoquemechas.replace(R.id.contProcedimentoId,toqueMechasFragment);
+                            tansacaotoquemechas.commit();
+                        }*/

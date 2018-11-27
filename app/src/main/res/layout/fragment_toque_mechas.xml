@@ -3,35 +3,33 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#c8aad2"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".Fragmentos.ToqueMechasFragment">
 
     <FrameLayout
         android:id="@+id/frameAlergiaId"
-        android:layout_width="411dp"
-        android:layout_height="168dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginBottom="8dp"
+        android:layout_width="0dp"
+        android:layout_height="591dp"
+        android:background="#c8aad2"
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0">
 
         <LinearLayout
             android:id="@+id/linearAlergiaId"
-            android:layout_width="394dp"
-            android:layout_height="175dp"
+            android:layout_width="359dp"
+            android:layout_height="500dp"
             android:layout_marginStart="8dp"
             android:layout_marginLeft="8dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="2dp"
             android:layout_marginRight="2dp"
             android:layout_marginBottom="8dp"
+            android:background="#c8aad2"
             android:gravity="center"
             android:orientation="vertical"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -39,6 +37,12 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
+            <TextView
+                android:layout_width="375dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/txt_teste_de_toque"
+                android:textSize="27sp" />
 
             <TextView
                 android:id="@+id/texvBase"
@@ -51,7 +55,7 @@
                 android:layout_marginRight="2dp"
                 android:gravity="center"
                 android:padding="8dp"
-                android:text="Apresentou alergias?"
+                android:text="@string/atxt_Apresentou_alergias"
                 android:textSize="22sp"
                 android:visibility="visible"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -81,14 +85,14 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Sim" />
+                    android:text="@string/txt_Sim1" />
 
                 <RadioButton
                     android:id="@+id/rbAlergNaoId"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Não" />
+                    android:text="@string/txt_Não" />
             </RadioGroup>
 
 
@@ -98,14 +102,9 @@
 
     <FrameLayout
         android:id="@+id/frametesteMechasId"
-        android:layout_width="411dp"
-        android:layout_height="168dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginBottom="8dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="#c8aad2"
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -114,8 +113,8 @@
 
         <LinearLayout
             android:id="@+id/lineartesteMechasId"
-            android:layout_width="394dp"
-            android:layout_height="175dp"
+            android:layout_width="match_parent"
+            android:layout_height="320dp"
             android:layout_marginStart="8dp"
             android:layout_marginLeft="8dp"
             android:layout_marginTop="8dp"
@@ -124,16 +123,23 @@
             android:layout_marginBottom="8dp"
             android:gravity="center"
             android:orientation="vertical"
+            android:visibility="visible"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/txt_Teste_de_mechas"
+                android:textSize="27sp" />
 
             <TextView
                 android:id="@+id/texvtesteMechas"
                 android:layout_width="375dp"
-                android:layout_height="76dp"
+                android:layout_height="56dp"
                 android:layout_marginStart="2dp"
                 android:layout_marginLeft="2dp"
                 android:layout_marginTop="16dp"
@@ -141,7 +147,7 @@
                 android:layout_marginRight="2dp"
                 android:gravity="center"
                 android:padding="8dp"
-                android:text="Apresentou irritabilidade capilar?"
+                android:text="@string/txt_Apresentou_irritabilidade_capilar"
                 android:textSize="22sp"
                 android:visibility="visible"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -171,14 +177,14 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Sim" />
+                    android:text="@string/txt_Sim2" />
 
                 <RadioButton
                     android:id="@+id/rbtesteMechasNaoId"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Não" />
+                    android:text="@string/txt_Não" />
             </RadioGroup>
 
 

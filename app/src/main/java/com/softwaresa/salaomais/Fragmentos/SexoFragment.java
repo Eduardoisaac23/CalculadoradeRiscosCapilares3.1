@@ -15,6 +15,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
+import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
@@ -29,8 +30,10 @@ public class SexoFragment extends Fragment {
     private RadioGroup rgGestante;
     private int contaBotaoSexo;
     private Button avancarSexo;
+
     private RadioGroup rgSexo;
     //Layout
+
     private FrameLayout sexoFrame;
     private FrameLayout gestanteFrame;
     private ProcedimentosPreferencias procedimentosPreferencias;
@@ -56,6 +59,7 @@ public class SexoFragment extends Fragment {
         sexoFrame = viewSexo.findViewById(R.id.sexoFrameId);
         avancarSexo = viewSexo.findViewById(R.id.btnAvancaSexoId);
         rgGestante = viewSexo.findViewById(R.id.rgGestanteId);
+
         rgSexo = viewSexo.findViewById(R.id.rgSexo);
         gestanteFrame = viewSexo.findViewById(R.id.gestanteFrameId);
        // linearTcabelosMas = viewSexo.findViewById(R.id.linearTcabelosMasId);
@@ -89,8 +93,7 @@ public class SexoFragment extends Fragment {
                                 AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
                                 builder.setCancelable(true);
                                 builder.setTitle("ATENÇÂO!");
-                                builder.setTitle("Uso de produtos químicos em gestantes não e indicado!");
-                                builder.setMessage("Deseja continuar?");
+                                builder.setMessage("Esses procedimentos não indicados para você. Há graves riscos de danos ao bebê.");
 
                                 builder.setNegativeButton("Sair", new DialogInterface.OnClickListener() {
                                     @Override
@@ -110,10 +113,6 @@ public class SexoFragment extends Fragment {
 
                                     }
                                 });*/
-
-
-
-
 
 
                             }else if (checkedId == R.id.rbNaoGes ){

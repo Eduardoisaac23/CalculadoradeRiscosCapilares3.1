@@ -5,14 +5,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Activity.ProcedimentosActivity"
-    android:background="#FFFFFF"
+    android:background="#c8aad2"
     android:gravity="center"
     android:fillViewport="true">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#FFFFFF"
+        android:background="#c8aad2"
         tools:context=".Activity.LoginActivity">
 
 
@@ -700,14 +700,8 @@
 
         <LinearLayout
             android:id="@+id/contProcedimentoId"
-            android:layout_width="368dp"
-            android:layout_height="437dp"
-            android:layout_marginStart="2dp"
-            android:layout_marginLeft="2dp"
-            android:layout_marginTop="2dp"
-            android:layout_marginEnd="2dp"
-            android:layout_marginRight="2dp"
-            android:layout_marginBottom="2dp"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
             android:orientation="vertical"
             app:layout_constraintBottom_toTopOf="@+id/btnSalProId"
             app:layout_constraintEnd_toEndOf="parent"

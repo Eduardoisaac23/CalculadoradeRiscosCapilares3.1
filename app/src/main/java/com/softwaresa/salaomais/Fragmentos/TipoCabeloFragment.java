@@ -75,7 +75,6 @@ public class TipoCabeloFragment extends Fragment {
                     procedimentosPreferencias.setTipocabelo("liso");
                     Toast.makeText(getActivity(),"Liso",Toast.LENGTH_LONG).show();
                     btnProximo.setVisibility(View.VISIBLE);
-
                 }
             }
         });
