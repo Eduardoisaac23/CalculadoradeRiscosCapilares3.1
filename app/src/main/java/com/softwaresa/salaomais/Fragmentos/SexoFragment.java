@@ -125,7 +125,7 @@ public class SexoFragment extends Fragment {
 
                                 salvarProcedimentosGestante.setId(procedimentosPreferencias.getId()+1);
 
-                                salvarProcedimentosGestante.setGestante(procedimentosPreferencias.isGestante());
+                                salvarProcedimentosGestante.setGestante(procedimentosPreferencias.getSexo());
 
                                 salvarProcedimentosGestante.salvar();
                                 procedimentosPreferencias.apagarPreferecias();
@@ -164,7 +164,7 @@ public class SexoFragment extends Fragment {
 
                                 salvarProcedimentosGestante.setId(procedimentosPreferencias.getId()+1);
 
-                                salvarProcedimentosGestante.setGestante(procedimentosPreferencias.isGestante());
+                                salvarProcedimentosGestante.setGestante(procedimentosPreferencias.getSexo());//retornar booleano
 
                                 salvarProcedimentosGestante.salvar();
                                 procedimentosPreferencias.apagarPreferecias();
