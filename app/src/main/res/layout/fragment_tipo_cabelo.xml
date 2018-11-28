@@ -21,13 +21,13 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.48000002">
+        app:layout_constraintVertical_bias="1.0">
 
 
         <TextView
             android:id="@+id/txvTipocabelo"
             android:layout_width="match_parent"
-            android:layout_height="292dp"
+            android:layout_height="302dp"
             android:gravity="center"
             android:text="@string/txt_Tipo_de_cabelo_natural"
             android:textSize="26sp" />
@@ -129,17 +129,18 @@
             <Button
                 android:id="@+id/btProximoId"
                 android:layout_width="423dp"
-                android:layout_height="111dp"
+                android:layout_height="294dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginLeft="8dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="8dp"
                 android:layout_marginRight="8dp"
+                android:layout_marginBottom="8dp"
                 android:background="#F5F5F5"
                 android:gravity="center"
-                android:text="@string/btn_Próximo"
+                android:text="@string/txt_Avançar"
                 android:textSize="16sp"
-                android:visibility="visible"
+                android:visibility="gone"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
