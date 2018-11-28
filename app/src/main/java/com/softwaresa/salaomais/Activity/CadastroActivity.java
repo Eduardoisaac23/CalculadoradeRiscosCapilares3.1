@@ -17,7 +17,7 @@ import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
 import com.google.firebase.auth.FirebaseAuthUserCollisionException;
 import com.google.firebase.auth.FirebaseAuthWeakPasswordException;
 import com.google.firebase.auth.FirebaseUser;
-import com.softwaresa.salaomais.DAO.ConfiguracaoFirebase;
+import com.softwaresa.salaomais.Configuracoes.ConfiguracaoFirebase;
 import com.softwaresa.salaomais.Entidades.Usuarios;
 import com.softwaresa.salaomais.Helper.Base64Custom;
 import com.softwaresa.salaomais.Helper.Preferencias;

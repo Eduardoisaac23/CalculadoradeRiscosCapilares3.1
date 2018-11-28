@@ -13,8 +13,10 @@ public class ProcedimentosPreferencias {
     private int MODE =0;
     private SharedPreferences.Editor editor;
 
-    //Instancias variaveis
 
+
+    //Instancias variaveis
+    private int id;
     private String sexo;              // Masculino feminino
     private boolean gestante;        // Sim não
     private String tipocabelo;      // Liso, Ondulado, Cacheado, Crespo
@@ -23,6 +25,10 @@ public class ProcedimentosPreferencias {
     private boolean baseigual;    // Sim Não
     private boolean alergia;     // sim Não
     private boolean testemechas;// escamação, coçeiras, irritabilidade capilar
+    private boolean quimiTrans;
+
+
+
 
 
 
@@ -137,6 +143,24 @@ public class ProcedimentosPreferencias {
         editor.putString("Aplicacao", aplicacao);
         editor.commit();
     }
+    public int getId() {
+        return preferences.getInt("identificacao",0);
+    }
+
+    public void setId(int id) {
+        editor.putInt("identificacao", id);
+        editor.commit();
+    }
+
+    public boolean isQuimiTrans() {
+        return preferences.getBoolean("Quimica de transformacao",false);
+    }
+
+    public void setQuimiTrans(boolean quimiTrans) {
+        editor.putBoolean("Quimica de transformacao", false);
+        editor.commit();
+    }
+
 
     public void apagarPreferecias(){
         editor.putString("Sexo", "");
@@ -149,11 +173,6 @@ public class ProcedimentosPreferencias {
         editor.putBoolean("alergia", false);
         editor.putBoolean("Teste de mecha", false);
         editor.commit();
-
-
-
-
-
 
     }
 }

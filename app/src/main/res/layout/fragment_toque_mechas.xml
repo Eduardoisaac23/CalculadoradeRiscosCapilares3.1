@@ -21,8 +21,8 @@
 
         <LinearLayout
             android:id="@+id/linearAlergiaId"
-            android:layout_width="359dp"
-            android:layout_height="500dp"
+            android:layout_width="355dp"
+            android:layout_height="432dp"
             android:layout_marginStart="8dp"
             android:layout_marginLeft="8dp"
             android:layout_marginTop="8dp"
@@ -37,17 +37,11 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
-            <TextView
-                android:layout_width="375dp"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="@string/txt_teste_de_toque"
-                android:textSize="27sp" />
 
             <TextView
                 android:id="@+id/texvBase"
                 android:layout_width="375dp"
-                android:layout_height="76dp"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="2dp"
                 android:layout_marginLeft="2dp"
                 android:layout_marginTop="16dp"
@@ -55,8 +49,8 @@
                 android:layout_marginRight="2dp"
                 android:gravity="center"
                 android:padding="8dp"
-                android:text="@string/atxt_Apresentou_alergias"
-                android:textSize="22sp"
+                android:text="Teste de toque. Apresentou_alergias?"
+                android:textSize="21sp"
                 android:visibility="visible"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.501"

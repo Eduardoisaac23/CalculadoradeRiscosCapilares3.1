@@ -2,7 +2,7 @@ package com.softwaresa.salaomais.Entidades;
 
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.Exclude;
-import com.softwaresa.salaomais.DAO.ConfiguracaoFirebase;
+import com.softwaresa.salaomais.Configuracoes.ConfiguracaoFirebase;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -29,7 +29,7 @@ public class Usuarios {
     public void salvar(){
 
         DatabaseReference referneciasFirebase = ConfiguracaoFirebase.getFirebase();
-        referneciasFirebase.child("usuario").child("usuario").child(String.valueOf(getId())).setValue(this);
+        referneciasFirebase.child("usuario").child(String.valueOf(getId())).child("usuario").setValue(this);
     }
 
     @Exclude

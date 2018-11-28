@@ -77,7 +77,7 @@ public class TipoCabeloFragment extends Fragment {
             public void onClick(View v) {
                 if (imgLiso1a.isClickable()){
                     procedimentosPreferencias.setTipocabelo("liso");
-                    Toast.makeText(getActivity(),"Liso",Toast.LENGTH_LONG).show();
+                   // Toast.makeText(getActivity(),"Liso",Toast.LENGTH_LONG).show();
                     btnProximo.setVisibility(View.VISIBLE);
 
                     //salvando firebase--------------------------------
@@ -100,7 +100,7 @@ public class TipoCabeloFragment extends Fragment {
             public void onClick(View v) {
                 if (imgOndulado2a.isClickable()){
                     procedimentosPreferencias.setTipocabelo("ondulado");
-                    Toast.makeText(getActivity(),"Ondulado",Toast.LENGTH_LONG).show();
+                   // Toast.makeText(getActivity(),"Ondulado",Toast.LENGTH_LONG).show();
                     btnProximo.setVisibility(View.VISIBLE);
 
                     //salvando firebase--------------------------------
@@ -122,7 +122,7 @@ public class TipoCabeloFragment extends Fragment {
             public void onClick(View v) {
                 if (imgCacheado3a.isClickable()){
                     procedimentosPreferencias.setTipocabelo("cacheado");
-                    Toast.makeText(getActivity(),"Cacheado",Toast.LENGTH_LONG).show();
+                   // Toast.makeText(getActivity(),"Cacheado",Toast.LENGTH_LONG).show();
                     btnProximo.setVisibility(View.VISIBLE);
 
                     //salvando firebase--------------------------------
@@ -145,7 +145,7 @@ public class TipoCabeloFragment extends Fragment {
 
                 if (imgCrespo4b.isClickable()){
                     procedimentosPreferencias.setTipocabelo("crespo");
-                    Toast.makeText(getActivity(),"Crespo",Toast.LENGTH_LONG).show();
+                  //  Toast.makeText(getActivity(),"Crespo",Toast.LENGTH_LONG).show();
                     btnProximo.setVisibility(View.VISIBLE);
 
                     //salvando firebase--------------------------------
@@ -167,7 +167,7 @@ public class TipoCabeloFragment extends Fragment {
             public void onClick(View v) {
                 if (imgLisom.isClickable()){
                     procedimentosPreferencias.setTipocabelo("liso");
-                    Toast.makeText(getActivity(),"Liso",Toast.LENGTH_LONG).show();
+                   // Toast.makeText(getActivity(),"Liso",Toast.LENGTH_LONG).show();
                     btnProximo.setVisibility(View.VISIBLE);
 
                     //salvando firebase--------------------------------
@@ -189,7 +189,7 @@ public class TipoCabeloFragment extends Fragment {
             public void onClick(View v) {
                 if (imgonduladom.isClickable()){
                     procedimentosPreferencias.setTipocabelo("ondulado");
-                    Toast.makeText(getActivity(),"Ondulado",Toast.LENGTH_LONG).show();
+                  //  Toast.makeText(getActivity(),"Ondulado",Toast.LENGTH_LONG).show();
                     btnProximo.setVisibility(View.VISIBLE);
 
                     //salvando firebase--------------------------------
@@ -211,7 +211,7 @@ public class TipoCabeloFragment extends Fragment {
             public void onClick(View v) {
                 if (imgcacheadom.isClickable()){
                     procedimentosPreferencias.setTipocabelo("cacheado");
-                    Toast.makeText(getActivity(),"Cacheado",Toast.LENGTH_LONG).show();
+                   // Toast.makeText(getActivity(),"Cacheado",Toast.LENGTH_LONG).show();
                     btnProximo.setVisibility(View.VISIBLE);
 
                     //salvando firebase--------------------------------
@@ -233,7 +233,7 @@ public class TipoCabeloFragment extends Fragment {
             public void onClick(View v) {
                 if (imgcrespom.isClickable()){
                     procedimentosPreferencias.setTipocabelo("crespo");
-                    Toast.makeText(getActivity(),"Crespo",Toast.LENGTH_LONG).show();
+                   // Toast.makeText(getActivity(),"Crespo",Toast.LENGTH_LONG).show();
                     btnProximo.setVisibility(View.VISIBLE);
 
                     //salvando firebase--------------------------------

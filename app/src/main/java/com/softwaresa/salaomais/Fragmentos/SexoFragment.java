@@ -171,9 +171,8 @@ public class SexoFragment extends Fragment {
 
                                 //---------------------------------
 
+                                // Toast.makeText(getActivity(), String.valueOf(checkedId), Toast.LENGTH_SHORT).show();
 
-
-                                Toast.makeText(getActivity(), String.valueOf(checkedId), Toast.LENGTH_SHORT).show();
                                 FragmentTransaction trascaocabelo = getFragmentManager().beginTransaction();
                                 trascaocabelo.replace(R.id.contProcedimentoId, tipoCabeloFragment);
                                 trascaocabelo.commit();
@@ -204,7 +203,8 @@ public class SexoFragment extends Fragment {
 
                     //---------------------------------
 
-                    Toast.makeText(getActivity(), String.valueOf(checkedId), Toast.LENGTH_SHORT).show();
+                   // Toast.makeText(getActivity(), String.valueOf(checkedId), Toast.LENGTH_SHORT).show();
+
                     FragmentTransaction trascaocabelo = getFragmentManager().beginTransaction();
                     trascaocabelo.replace(R.id.contProcedimentoId, tipoCabeloFragment);
                     trascaocabelo.commit();

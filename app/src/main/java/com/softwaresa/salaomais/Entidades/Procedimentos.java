@@ -1,9 +1,13 @@
 package com.softwaresa.salaomais.Entidades;
 
+import com.google.firebase.database.DatabaseReference;
+import com.softwaresa.salaomais.Configuracoes.ConfiguracaoFirebase;
+
 public class Procedimentos {
 
 
     private String Gestante;
+    private int id;
     private String Cabelo;
     private String QuimicaAnterior;
     private String QuimicaAtual;
@@ -14,6 +18,12 @@ public class Procedimentos {
 
     public Procedimentos() {
 
+    }
+
+    public void salvar(){
+
+        DatabaseReference referneciasFirebase = ConfiguracaoFirebase.getFirebase();
+        referneciasFirebase.child("usuario").child(String.valueOf(getId())).child("usuario").setValue(this);
     }
 
     private String Sexo;
@@ -90,5 +100,12 @@ public class Procedimentos {
         Procedimento = procedimento;
     }
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
 }

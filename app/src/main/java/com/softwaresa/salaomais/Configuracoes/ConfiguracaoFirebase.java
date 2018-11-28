@@ -1,4 +1,4 @@
-package com.softwaresa.salaomais.DAO;
+package com.softwaresa.salaomais.Configuracoes;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
