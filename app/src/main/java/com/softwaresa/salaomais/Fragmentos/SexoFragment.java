@@ -20,6 +20,7 @@ import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import com.softwaresa.salaomais.Activity.MenuActivity;
+import com.softwaresa.salaomais.Entidades.Procedimentos;
 import com.softwaresa.salaomais.Helper.ProcedimentosPreferencias;
 import com.softwaresa.salaomais.R;
 
@@ -30,6 +31,8 @@ public class SexoFragment extends Fragment {
     private RadioGroup rgGestante;
     private int contaBotaoSexo;
     private Button avancarSexo;
+    private Button btnAvancar3;
+    private Button btnAvancar4;
 
     private RadioGroup rgSexo;
     //Layout
@@ -37,6 +40,8 @@ public class SexoFragment extends Fragment {
     private FrameLayout sexoFrame;
     private FrameLayout gestanteFrame;
     private ProcedimentosPreferencias procedimentosPreferencias;
+    private Procedimentos salvaProcedimentoSexo;
+    private Procedimentos salvarProcedimentosGestante;
     private TipoCabeloFragment tipoCabeloFragment;
     private LinearLayout linearTcabelosMas;
     private  LinearLayout linearTcabelosFemi;
@@ -59,13 +64,16 @@ public class SexoFragment extends Fragment {
         sexoFrame = viewSexo.findViewById(R.id.sexoFrameId);
         avancarSexo = viewSexo.findViewById(R.id.btnAvancaSexoId);
         rgGestante = viewSexo.findViewById(R.id.rgGestanteId);
-
+        btnAvancar3 = viewSexo.findViewById(R.id.btnAvancar3Id);
+        btnAvancar4  = viewSexo.findViewById(R.id.btnAvancar4Id);
         rgSexo = viewSexo.findViewById(R.id.rgSexo);
         gestanteFrame = viewSexo.findViewById(R.id.gestanteFrameId);
        // linearTcabelosMas = viewSexo.findViewById(R.id.linearTcabelosMasId);
         linearTcabelosFemi = viewSexo.findViewById(R.id.linearTcabelosFemiId);
 
         procedimentosPreferencias  = new ProcedimentosPreferencias(getActivity());
+        salvaProcedimentoSexo = new Procedimentos();
+        salvarProcedimentosGestante = new  Procedimentos();
 
 
         rgSexo.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
@@ -78,9 +86,26 @@ public class SexoFragment extends Fragment {
 
 
                 if (checkedId == R.id.rbFemi) {
+
                   procedimentosPreferencias.setSexo("feminino");
+
                     sexoFrame.setVisibility(View.GONE);
                     gestanteFrame.setVisibility(View.VISIBLE);
+
+                    //salvando firebase--------------------------------
+
+
+                    salvaProcedimentoSexo.setId(procedimentosPreferencias.getId()+1);
+
+                    salvaProcedimentoSexo.setSexo(procedimentosPreferencias.getSexo());
+
+                    salvaProcedimentoSexo.salvar();
+                    procedimentosPreferencias.apagarPreferecias();
+
+                    //---------------------------------
+
+
+
                     rgGestante.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
 
                         @Override
@@ -88,7 +113,24 @@ public class SexoFragment extends Fragment {
 
                             if (checkedId == R.id.rbSimGes) {
 
+                               // btnAvancar3.setVisibility(View.GONE);
+                               // gestanteFrame.setVisibility(View.GONE);
+                                //btnAvancar4.setVisibility(View.GONE);
+                               // sexoFrame.setVisibility(View.GONE);
+
                                 procedimentosPreferencias.setGestante(true);
+
+                                //salvando firebase--------------------------------
+
+
+                                salvarProcedimentosGestante.setId(procedimentosPreferencias.getId()+1);
+
+                                salvarProcedimentosGestante.setGestante(procedimentosPreferencias.isGestante());
+
+                                salvarProcedimentosGestante.salvar();
+                                procedimentosPreferencias.apagarPreferecias();
+
+                                //---------------------------------
 
                                 AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
                                 builder.setCancelable(true);
@@ -119,10 +161,23 @@ public class SexoFragment extends Fragment {
 
                                 procedimentosPreferencias.setGestante(false);
 
+
+                                salvarProcedimentosGestante.setId(procedimentosPreferencias.getId()+1);
+
+                                salvarProcedimentosGestante.setGestante(procedimentosPreferencias.isGestante());
+
+                                salvarProcedimentosGestante.salvar();
+                                procedimentosPreferencias.apagarPreferecias();
+
+                                //---------------------------------
+
+
+
                                 Toast.makeText(getActivity(), String.valueOf(checkedId), Toast.LENGTH_SHORT).show();
                                 FragmentTransaction trascaocabelo = getFragmentManager().beginTransaction();
                                 trascaocabelo.replace(R.id.contProcedimentoId, tipoCabeloFragment);
                                 trascaocabelo.commit();
+
                                 //  procedimentosPreferencias.setContaBotaoSexo(1);
 
                             }
@@ -133,6 +188,22 @@ public class SexoFragment extends Fragment {
                 } else if (checkedId == R.id.rbMasc) {
 
                     procedimentosPreferencias.setSexo("masculino");
+
+                    //avancarSexo.setVisibility(View.VISIBLE);
+                    //btnAvancar3.setVisibility(View.GONE);
+
+                    //salvando firebase--------------------------------
+
+
+                    salvaProcedimentoSexo.setId(procedimentosPreferencias.getId()+1);
+
+                    salvaProcedimentoSexo.setSexo(procedimentosPreferencias.getSexo());
+
+                    salvaProcedimentoSexo.salvar();
+                    procedimentosPreferencias.apagarPreferecias();
+
+                    //---------------------------------
+
                     Toast.makeText(getActivity(), String.valueOf(checkedId), Toast.LENGTH_SHORT).show();
                     FragmentTransaction trascaocabelo = getFragmentManager().beginTransaction();
                     trascaocabelo.replace(R.id.contProcedimentoId, tipoCabeloFragment);
@@ -142,6 +213,39 @@ public class SexoFragment extends Fragment {
 
             }
         });
+
+
+
+        /*avancarSexo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (avancarSexo.isClickable()){
+                   // Toast.makeText(getActivity(), String.valueOf(checkedId), Toast.LENGTH_SHORT).show();
+                    FragmentTransaction trascaocabelo = getFragmentManager().beginTransaction();
+                    trascaocabelo.replace(R.id.contProcedimentoId, tipoCabeloFragment);
+                    trascaocabelo.commit();
+                }
+            }
+        });
+        btnAvancar3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (btnAvancar3.isClickable()){
+                    gestanteFrame.setVisibility(View.VISIBLE);
+                     //sexoFrame.setVisibility(View.GONE);
+                }
+            }
+        });
+        btnAvancar4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (btnAvancar4.isClickable()){
+                    FragmentTransaction trascaocabelo = getFragmentManager().beginTransaction();
+                    trascaocabelo.replace(R.id.contProcedimentoId, tipoCabeloFragment);
+                    trascaocabelo.commit();
+                }
+            }
+        });*/
 
        /* avancarSexo.setOnClickListener(new View.OnClickListener() {
             @Override
