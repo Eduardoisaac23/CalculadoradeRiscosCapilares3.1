@@ -15,6 +15,7 @@ import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.Toast;
 
+import com.softwaresa.salaomais.Entidades.Procedimentos;
 import com.softwaresa.salaomais.Helper.Preferencias;
 import com.softwaresa.salaomais.Helper.ProcedimentosPreferencias;
 import com.softwaresa.salaomais.R;
@@ -39,6 +40,7 @@ public class TipoCabeloFragment extends Fragment {
     private Button btnProximo;
     private QuimicaFragment quimicaFragment;
     private ProcedimentosPreferencias procedimentosPreferencias;
+    private Procedimentos salvarProcedimentosTipoCabelo;
 
 
     //Construtor
@@ -66,7 +68,9 @@ public class TipoCabeloFragment extends Fragment {
        imgcacheadom = viewTipoCabelo.findViewById(R.id.imgcacheadomId);
        imgonduladom = viewTipoCabelo.findViewById(R.id.imgonduladomId);
        btnProximo = viewTipoCabelo.findViewById(R.id.btProximoId);
+
        procedimentosPreferencias  = new ProcedimentosPreferencias(getActivity());
+       salvarProcedimentosTipoCabelo  = new Procedimentos();
 
         imgLiso1a.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -75,6 +79,19 @@ public class TipoCabeloFragment extends Fragment {
                     procedimentosPreferencias.setTipocabelo("liso");
                     Toast.makeText(getActivity(),"Liso",Toast.LENGTH_LONG).show();
                     btnProximo.setVisibility(View.VISIBLE);
+
+                    //salvando firebase--------------------------------
+
+
+                    salvarProcedimentosTipoCabelo.setId(procedimentosPreferencias.getId()+1);
+
+                    salvarProcedimentosTipoCabelo.setCabelo(procedimentosPreferencias.getTipocabelo());
+
+                    salvarProcedimentosTipoCabelo.salvar();
+                    procedimentosPreferencias.apagarPreferecias();
+
+                    //---------------------------------
+
                 }
             }
         });
@@ -85,6 +102,18 @@ public class TipoCabeloFragment extends Fragment {
                     procedimentosPreferencias.setTipocabelo("ondulado");
                     Toast.makeText(getActivity(),"Ondulado",Toast.LENGTH_LONG).show();
                     btnProximo.setVisibility(View.VISIBLE);
+
+                    //salvando firebase--------------------------------
+
+
+                    salvarProcedimentosTipoCabelo.setId(procedimentosPreferencias.getId()+1);
+
+                    salvarProcedimentosTipoCabelo.setCabelo(procedimentosPreferencias.getTipocabelo());
+
+                    salvarProcedimentosTipoCabelo.salvar();
+                    procedimentosPreferencias.apagarPreferecias();
+
+                    //---------------------------------
                 }
             }
         });
@@ -95,6 +124,18 @@ public class TipoCabeloFragment extends Fragment {
                     procedimentosPreferencias.setTipocabelo("cacheado");
                     Toast.makeText(getActivity(),"Cacheado",Toast.LENGTH_LONG).show();
                     btnProximo.setVisibility(View.VISIBLE);
+
+                    //salvando firebase--------------------------------
+
+
+                    salvarProcedimentosTipoCabelo.setId(procedimentosPreferencias.getId()+1);
+
+                    salvarProcedimentosTipoCabelo.setCabelo(procedimentosPreferencias.getTipocabelo());
+
+                    salvarProcedimentosTipoCabelo.salvar();
+                    procedimentosPreferencias.apagarPreferecias();
+
+                    //---------------------------------
                 }
             }
         });
@@ -106,6 +147,18 @@ public class TipoCabeloFragment extends Fragment {
                     procedimentosPreferencias.setTipocabelo("crespo");
                     Toast.makeText(getActivity(),"Crespo",Toast.LENGTH_LONG).show();
                     btnProximo.setVisibility(View.VISIBLE);
+
+                    //salvando firebase--------------------------------
+
+
+                    salvarProcedimentosTipoCabelo.setId(procedimentosPreferencias.getId()+1);
+
+                    salvarProcedimentosTipoCabelo.setCabelo(procedimentosPreferencias.getTipocabelo());
+
+                    salvarProcedimentosTipoCabelo.salvar();
+                    procedimentosPreferencias.apagarPreferecias();
+
+                    //---------------------------------
                 }
             }
         });
@@ -116,6 +169,18 @@ public class TipoCabeloFragment extends Fragment {
                     procedimentosPreferencias.setTipocabelo("liso");
                     Toast.makeText(getActivity(),"Liso",Toast.LENGTH_LONG).show();
                     btnProximo.setVisibility(View.VISIBLE);
+
+                    //salvando firebase--------------------------------
+
+
+                    salvarProcedimentosTipoCabelo.setId(procedimentosPreferencias.getId()+1);
+
+                    salvarProcedimentosTipoCabelo.setCabelo(procedimentosPreferencias.getTipocabelo());
+
+                    salvarProcedimentosTipoCabelo.salvar();
+                    procedimentosPreferencias.apagarPreferecias();
+
+                    //---------------------------------
                 }
             }
         });
@@ -126,6 +191,18 @@ public class TipoCabeloFragment extends Fragment {
                     procedimentosPreferencias.setTipocabelo("ondulado");
                     Toast.makeText(getActivity(),"Ondulado",Toast.LENGTH_LONG).show();
                     btnProximo.setVisibility(View.VISIBLE);
+
+                    //salvando firebase--------------------------------
+
+
+                    salvarProcedimentosTipoCabelo.setId(procedimentosPreferencias.getId()+1);
+
+                    salvarProcedimentosTipoCabelo.setCabelo(procedimentosPreferencias.getTipocabelo());
+
+                    salvarProcedimentosTipoCabelo.salvar();
+                    procedimentosPreferencias.apagarPreferecias();
+
+                    //---------------------------------
                 }
             }
         });
@@ -136,6 +213,18 @@ public class TipoCabeloFragment extends Fragment {
                     procedimentosPreferencias.setTipocabelo("cacheado");
                     Toast.makeText(getActivity(),"Cacheado",Toast.LENGTH_LONG).show();
                     btnProximo.setVisibility(View.VISIBLE);
+
+                    //salvando firebase--------------------------------
+
+
+                    salvarProcedimentosTipoCabelo.setId(procedimentosPreferencias.getId()+1);
+
+                    salvarProcedimentosTipoCabelo.setCabelo(procedimentosPreferencias.getTipocabelo());
+
+                    salvarProcedimentosTipoCabelo.salvar();
+                    procedimentosPreferencias.apagarPreferecias();
+
+                    //---------------------------------
                 }
             }
         });
@@ -146,6 +235,18 @@ public class TipoCabeloFragment extends Fragment {
                     procedimentosPreferencias.setTipocabelo("crespo");
                     Toast.makeText(getActivity(),"Crespo",Toast.LENGTH_LONG).show();
                     btnProximo.setVisibility(View.VISIBLE);
+
+                    //salvando firebase--------------------------------
+
+
+                    salvarProcedimentosTipoCabelo.setId(procedimentosPreferencias.getId()+1);
+
+                    salvarProcedimentosTipoCabelo.setCabelo(procedimentosPreferencias.getTipocabelo());
+
+                    salvarProcedimentosTipoCabelo.salvar();
+                    procedimentosPreferencias.apagarPreferecias();
+
+                    //---------------------------------
                 }
             }
         });
@@ -157,6 +258,18 @@ public class TipoCabeloFragment extends Fragment {
                     FragmentTransaction transacaoQuimi = getFragmentManager().beginTransaction();
                     transacaoQuimi.replace(R.id.contProcedimentoId,quimicaFragment);
                     transacaoQuimi.commit();
+
+                    //salvando firebase--------------------------------
+
+
+                    salvarProcedimentosTipoCabelo.setId(procedimentosPreferencias.getId()+1);
+
+                    salvarProcedimentosTipoCabelo.setCabelo(procedimentosPreferencias.getTipocabelo());
+
+                    salvarProcedimentosTipoCabelo.salvar();
+                    procedimentosPreferencias.apagarPreferecias();
+
+                    //---------------------------------
                 }
             }
         });

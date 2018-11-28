@@ -196,39 +196,39 @@ public class QuimicaFragment extends Fragment {
                 if (checkedId == R.id.rbAli2Id) {
 
                     procedimentosPreferencias.setQuimicatual("alisamento");
-                    //frameQuimi1.setVisibility(View.VISIBLE);
-                    frameTempo.setVisibility(View.VISIBLE);
+                    frameQuimi1.setVisibility(View.VISIBLE);
+                   // frameTempo.setVisibility(View.VISIBLE);
                     frameQuimi2.setVisibility(View.GONE);
 
 
                 } else if (checkedId == R.id.rbCol2Id) {
 
                     procedimentosPreferencias.setQuimicatual("coloracao");
-                    // frameQuimi1.setVisibility(View.VISIBLE);
-                    frameTempo.setVisibility(View.VISIBLE);
+                     frameQuimi1.setVisibility(View.VISIBLE);
+                    //frameTempo.setVisibility(View.VISIBLE);
                     frameQuimi2.setVisibility(View.GONE);
 
 
                 } else if (checkedId == R.id.rbDes2Id) {
 
                     procedimentosPreferencias.setQuimicatual("descoloracao");
-                    //frameQuimi1.setVisibility(View.VISIBLE);
-                    frameTempo.setVisibility(View.VISIBLE);
+                    frameQuimi1.setVisibility(View.VISIBLE);
+                    //frameTempo.setVisibility(View.VISIBLE);
                     frameQuimi2.setVisibility(View.GONE);
 
 
                 } else {
 
                     procedimentosPreferencias.setQuimicatual("permanente");
-                    // frameQuimi1.setVisibility(View.VISIBLE);
-                    frameTempo.setVisibility(View.VISIBLE);
+                     frameQuimi1.setVisibility(View.VISIBLE);
+                   // frameTempo.setVisibility(View.VISIBLE);
                     frameQuimi2.setVisibility(View.GONE);
 
                 }
             }
         });
 
-        rgTempoAplicacao.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+        /*rgTempoAplicacao.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
 
@@ -251,7 +251,7 @@ public class QuimicaFragment extends Fragment {
                     frameTempo.setVisibility(View.GONE);
                 }
             }
-        });
+        });*/
 
         rgBaseigual.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
