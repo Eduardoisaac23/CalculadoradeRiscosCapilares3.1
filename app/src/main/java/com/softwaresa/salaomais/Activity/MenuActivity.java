@@ -28,15 +28,15 @@ public class MenuActivity extends AppCompatActivity
         setSupportActionBar(toolbar);
 
 
-       FloatingActionButton fab = findViewById(R.id.fab);
+        FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                Intent intentvoltar = new  Intent(MenuActivity.this, ProcedimentosActivity.class);
+                Intent intentvoltar = new Intent(MenuActivity.this, ProcedimentosActivity.class);
                 startActivity(intentvoltar);
                 //Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        //.setAction("Action", null).show();
+                //.setAction("Action", null).show();
             }
         });
 
@@ -99,6 +99,7 @@ public class MenuActivity extends AppCompatActivity
         } else if (id == R.id.nav_share) {
 
         } else if (id == R.id.nav_send) {
+
 
         }
 

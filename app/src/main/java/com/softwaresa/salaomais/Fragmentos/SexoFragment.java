@@ -15,18 +15,18 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
-import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import com.softwaresa.salaomais.Activity.MenuActivity;
 import com.softwaresa.salaomais.Entidades.Procedimentos;
 import com.softwaresa.salaomais.Helper.ProcedimentosPreferencias;
+import com.softwaresa.salaomais.Helper.UsuarioAtualPreferencias;
 import com.softwaresa.salaomais.R;
 
 
-
-public class SexoFragment extends Fragment {
+public class SexoFragment extends Fragment
+{
 
     private RadioGroup rgGestante;
     private int contaBotaoSexo;
@@ -41,93 +41,111 @@ public class SexoFragment extends Fragment {
     private FrameLayout gestanteFrame;
     private ProcedimentosPreferencias procedimentosPreferencias;
     private Procedimentos salvaProcedimentoSexo;
-    private Procedimentos salvarProcedimentosGestante;
     private TipoCabeloFragment tipoCabeloFragment;
+    private TipocabeloMascFragment tipocabeloMascFragment;
+    private Procedimentos salvarProcedimentosGestante;
     private LinearLayout linearTcabelosMas;
-    private  LinearLayout linearTcabelosFemi;
+    private LinearLayout linearTcabelosFemi;
+    private UsuarioAtualPreferencias usuarioAtualPreferencias;
 
 
-    public SexoFragment() {
+    public SexoFragment()
+    {
         // Required empty public constructor
     }
 
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+                             final Bundle savedInstanceState)
+    {
 
 
-        tipoCabeloFragment = new TipoCabeloFragment();
+
 
         // Inflate the layout for this fragment
-        final View viewSexo =  inflater.inflate(R.layout.fragment_sexo, container, false);
+        final View viewSexo = inflater.inflate(R.layout.fragment_sexo, container, false);
         sexoFrame = viewSexo.findViewById(R.id.sexoFrameId);
         avancarSexo = viewSexo.findViewById(R.id.btnAvancaSexoId);
         rgGestante = viewSexo.findViewById(R.id.rgGestanteId);
         btnAvancar3 = viewSexo.findViewById(R.id.btnAvancar3Id);
-        btnAvancar4  = viewSexo.findViewById(R.id.btnAvancar4Id);
+        btnAvancar4 = viewSexo.findViewById(R.id.btnAvancar4Id);
         rgSexo = viewSexo.findViewById(R.id.rgSexo);
         gestanteFrame = viewSexo.findViewById(R.id.gestanteFrameId);
-       // linearTcabelosMas = viewSexo.findViewById(R.id.linearTcabelosMasId);
+        // linearTcabelosMas = viewSexo.findViewById(R.id.linearTcabelosMasId);
         linearTcabelosFemi = viewSexo.findViewById(R.id.linearTcabelosFemiId);
 
         procedimentosPreferencias  = new ProcedimentosPreferencias(getActivity());
         salvaProcedimentoSexo = new Procedimentos();
         salvarProcedimentosGestante = new  Procedimentos();
+        tipoCabeloFragment = new TipoCabeloFragment();
+        tipocabeloMascFragment  = new TipocabeloMascFragment();
 
 
-        rgSexo.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+
+        rgSexo.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener()
+        {
 
 
             @Override
-            public void onCheckedChanged(RadioGroup group, int checkedId) {
+            public void onCheckedChanged(RadioGroup group, int checkedId)
+            {
 
                 //descobrir qual botão de opção está selecionado
 
 
-                if (checkedId == R.id.rbFemi) {
+                if (checkedId == R.id.rbFemi)
+                {
 
-                  procedimentosPreferencias.setSexo("feminino");
+                    procedimentosPreferencias.setSexo("feminino");
 
                     sexoFrame.setVisibility(View.GONE);
                     gestanteFrame.setVisibility(View.VISIBLE);
 
-                    //salvando firebase--------------------------------
-
-
-                    salvaProcedimentoSexo.setId(procedimentosPreferencias.getId()+1);
-
-                    salvaProcedimentoSexo.setSexo(procedimentosPreferencias.getSexo());
-
-                    salvaProcedimentoSexo.salvar();
-                    procedimentosPreferencias.apagarPreferecias();
-
-                    //---------------------------------
 
 
 
-                    rgGestante.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+                    rgGestante.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener()
+                    {
 
                         @Override
-                        public void onCheckedChanged(RadioGroup group, int checkedId) {
+                        public void onCheckedChanged(RadioGroup group, int checkedId)
+                        {
 
-                            if (checkedId == R.id.rbSimGes) {
+                            if (checkedId == R.id.rbSimGes)
+                            {
 
-                               // btnAvancar3.setVisibility(View.GONE);
-                               // gestanteFrame.setVisibility(View.GONE);
+                                // btnAvancar3.setVisibility(View.GONE);
+                                // gestanteFrame.setVisibility(View.GONE);
                                 //btnAvancar4.setVisibility(View.GONE);
-                               // sexoFrame.setVisibility(View.GONE);
+                                // sexoFrame.setVisibility(View.GONE);
 
                                 procedimentosPreferencias.setGestante(true);
 
                                 //salvando firebase--------------------------------
 
+                                salvaProcedimentoSexo.setId(String.valueOf(procedimentosPreferencias.getId()+1));
 
-                                salvarProcedimentosGestante.setId(procedimentosPreferencias.getId()+1);
+                                 salvaProcedimentoSexo.setSexo(procedimentosPreferencias.getSexo());
 
-                                salvarProcedimentosGestante.setGestante(procedimentosPreferencias.getSexo());
+                                salvaProcedimentoSexo.setGestante(procedimentosPreferencias.getGestante());
 
-                                salvarProcedimentosGestante.salvar();
+                                salvaProcedimentoSexo.setCabelo(procedimentosPreferencias.getTipocabelo());
+
+                                salvaProcedimentoSexo.setQuimicaAtual(procedimentosPreferencias.getQuimicatual());
+
+                                salvaProcedimentoSexo.setBase(procedimentosPreferencias.getBaseigual());
+
+                                salvaProcedimentoSexo.setAlergia(procedimentosPreferencias.isAlergia());
+
+                                salvaProcedimentoSexo.setQuimiTrans(procedimentosPreferencias.isTestemechas());
+
+                                salvaProcedimentoSexo.setQuimiTrans(procedimentosPreferencias.isQuimiTrans());
+
+                                salvaProcedimentoSexo.setDanosCapilares(procedimentosPreferencias.isDanoscapilares());
+
+                               // salvaProcedimentoSexo.salvar();
+                              //  Toast.makeText(getActivity(),String.valueOf(salvaProcedimentoSexo.getBase()),Toast.LENGTH_SHORT).show();
                                 procedimentosPreferencias.apagarPreferecias();
 
                                 //---------------------------------
@@ -141,7 +159,7 @@ public class SexoFragment extends Fragment {
                                     @Override
                                     public void onClick(DialogInterface dialog, int which) {
 
-                                        Intent intent = new  Intent(getActivity(),  MenuActivity.class );
+                                        Intent intent = new Intent(getActivity(), MenuActivity.class);
                                         startActivity(intent);
                                         dialog.cancel();
                                     }
@@ -157,19 +175,11 @@ public class SexoFragment extends Fragment {
                                 });*/
 
 
-                            }else if (checkedId == R.id.rbNaoGes ){
+                            } else if (checkedId == R.id.rbNaoGes)
+                            {
 
                                 procedimentosPreferencias.setGestante(false);
 
-
-                                salvarProcedimentosGestante.setId(procedimentosPreferencias.getId()+1);
-
-                                salvarProcedimentosGestante.setGestante(procedimentosPreferencias.getSexo());//retornar booleano
-
-                                salvarProcedimentosGestante.salvar();
-                                procedimentosPreferencias.apagarPreferecias();
-
-                                //---------------------------------
 
                                 // Toast.makeText(getActivity(), String.valueOf(checkedId), Toast.LENGTH_SHORT).show();
 
@@ -184,7 +194,8 @@ public class SexoFragment extends Fragment {
                     });
 
 
-                } else if (checkedId == R.id.rbMasc) {
+                } else if (checkedId == R.id.rbMasc)
+                {
 
                     procedimentosPreferencias.setSexo("masculino");
 
@@ -194,19 +205,10 @@ public class SexoFragment extends Fragment {
                     //salvando firebase--------------------------------
 
 
-                    salvaProcedimentoSexo.setId(procedimentosPreferencias.getId()+1);
-
-                    salvaProcedimentoSexo.setSexo(procedimentosPreferencias.getSexo());
-
-                    salvaProcedimentoSexo.salvar();
-                    procedimentosPreferencias.apagarPreferecias();
-
-                    //---------------------------------
-
-                   // Toast.makeText(getActivity(), String.valueOf(checkedId), Toast.LENGTH_SHORT).show();
+                    // Toast.makeText(getActivity(), String.valueOf(checkedId), Toast.LENGTH_SHORT).show();
 
                     FragmentTransaction trascaocabelo = getFragmentManager().beginTransaction();
-                    trascaocabelo.replace(R.id.contProcedimentoId, tipoCabeloFragment);
+                    trascaocabelo.replace(R.id.contProcedimentoId, tipocabeloMascFragment);
                     trascaocabelo.commit();
 
                 }
@@ -331,7 +333,6 @@ public class SexoFragment extends Fragment {
 
         return viewSexo;
     }
-
 
 
 }

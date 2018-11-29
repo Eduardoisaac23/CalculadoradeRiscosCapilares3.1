@@ -43,7 +43,6 @@ public class RecuperarSenhaActivity extends AppCompatActivity {
         });
 
 
-
         btnRecup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

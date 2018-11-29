@@ -10,7 +10,7 @@
 
 
     <LinearLayout
-        android:id="@+id/linearScrollId"
+        android:id="@+id/linearScrollMId"
         android:layout_width="match_parent"
         android:layout_height="738dp"
         android:background="#F5F5F5"
@@ -25,16 +25,16 @@
 
 
         <TextView
-            android:id="@+id/txvTipocabelo"
+            android:id="@+id/txvTipocabeloMId"
             android:layout_width="match_parent"
-            android:layout_height="302dp"
+            android:layout_height="342dp"
             android:gravity="center"
             android:text="@string/txt_Tipo_de_cabelo_natural"
             android:textSize="26sp" />
 
 
         <HorizontalScrollView
-            android:id="@+id/scrollImagensId"
+            android:id="@+id/scrollImagensMId"
             android:layout_width="match_parent"
             android:layout_height="127dp"
             android:layout_marginTop="0dp"
@@ -42,47 +42,44 @@
 
 
             <LinearLayout
-                android:id="@+id/linearTcabelosFemiId"
+                android:id="@+id/linearTcabelosMacId"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="#F5F5F5"
                 android:orientation="horizontal">
 
-                <ImageView
-                    android:id="@+id/imgOndulado2aId"
-                    android:layout_width="150dp"
-                    android:layout_height="150dp"
-                    android:layout_weight="1"
-                    android:background="#F5F5F5"
-                    android:src="@drawable/tipo2a" />
 
                 <ImageView
-                    android:id="@+id/imgLiso1aId"
+                    android:id="@+id/imgLisoId"
                     android:layout_width="150dp"
                     android:layout_height="150dp"
                     android:background="#F5F5F5"
                     android:elevation="2dp"
-                    android:src="@drawable/tipo1a" />
-
-
-                <ImageView
-                    android:id="@+id/imgCrespo4bId"
-                    android:layout_width="150dp"
-                    android:layout_height="150dp"
-                    android:layout_weight="1"
-                    android:background="#F5F5F5"
-                    android:src="@drawable/tipo4a" />
+                    android:src="@drawable/lisom" />
 
                 <ImageView
-                    android:id="@+id/imgCacheado3aId"
+                    android:id="@+id/imgonduladomId"
                     android:layout_width="150dp"
                     android:layout_height="150dp"
-                    android:layout_weight="1"
                     android:background="#F5F5F5"
-                    android:src="@drawable/tipo3a" />
+                    android:elevation="2dp"
+                    android:src="@drawable/onduladom" />
 
+                <ImageView
+                    android:id="@+id/imgcacheadomId"
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
+                    android:background="#F5F5F5"
+                    android:elevation="2dp"
+                    android:src="@drawable/cacheadom" />
 
-
+                <ImageView
+                    android:id="@+id/imgcrespomId"
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
+                    android:background="#F5F5F5"
+                    android:elevation="2dp"
+                    android:src="@drawable/crespom" />
 
             </LinearLayout>
 
@@ -97,9 +94,9 @@
             tools:layout_editor_absoluteY="189dp">
 
             <Button
-                android:id="@+id/btProximoId"
+                android:id="@+id/btProximoMId"
                 android:layout_width="423dp"
-                android:layout_height="294dp"
+                android:layout_height="296dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginLeft="8dp"
                 android:layout_marginTop="8dp"

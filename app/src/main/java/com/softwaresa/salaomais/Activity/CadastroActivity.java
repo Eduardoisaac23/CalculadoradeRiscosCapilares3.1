@@ -29,24 +29,20 @@ import androidx.appcompat.app.AppCompatActivity;
 public class CadastroActivity extends AppCompatActivity {
 
 
-     private RadioButton rbFem;
-     private RadioButton rbMas;
-     private  EditText editTSenha;
-     private  EditText editTEmail;
-     private  EditText editTConSenha;
-     private  EditText editTNome;
-     private FloatingActionButton floaActionBtnSalavr;
-     private Button btnSalvar;
-     private Usuarios usuarios;
-     private FirebaseAuth autenticacao;
+    private EditText editTSenha;
+    private EditText editTEmail;
+    private EditText editTConSenha;
+    private EditText editTNome;
+    private FloatingActionButton floaActionBtnSalavr;
+    private Button btnSalvar;
+    private Usuarios usuarios;
+    private FirebaseAuth autenticacao;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cadastro);
 
-        rbFem  = findViewById(R.id.rbFem);
-        rbMas  = findViewById(R.id.rbMas);
         editTNome = findViewById(R.id.editTNome);
         editTSenha = findViewById(R.id.editTSenha);
         editTEmail = findViewById(R.id.editTEmail);
@@ -58,27 +54,70 @@ public class CadastroActivity extends AppCompatActivity {
         btnSalvar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (editTSenha.getText().toString().equals(editTConSenha.getText().toString())) {
-                    usuarios = new Usuarios();
-                    usuarios.setNome(editTNome.getText().toString());
-                    usuarios.setEmail(editTEmail.getText().toString());
-                    usuarios.setRecuperar(editTConSenha.getText().toString());
-                    usuarios.setSenha(editTSenha.getText().toString());
 
-                    cadastroDeUsuario();
+                if (editTEmail.getText().toString().equals("") || editTSenha.getText().toString().equals("")
+                        || editTNome.getText().toString().equals("") || editTConSenha.getText().toString().equals("")){
 
-                    if(rbFem.isChecked()){
-                        usuarios.setSexo("Feminno");
-                    }else{
-                        usuarios.setSexo("Masculino");
+                    Toast.makeText(CadastroActivity.this,"Preencha todos os campos.", Toast.LENGTH_LONG).show();
+
+                }else if (editTSenha.getText().toString().equals(editTConSenha.getText().toString()))
+                {
+                    if (editTEmail.getText().toString().equals("") || editTSenha.getText().toString().equals("")
+                            || editTNome.getText().toString().equals("") || editTConSenha.getText().toString().equals(""))
+                    {
+
+                        Toast.makeText(CadastroActivity.this, "Preencha todos os campos.", Toast.LENGTH_LONG).show();
+
+                    } else if (editTSenha.getText().toString().equals(editTConSenha.getText().toString()))
+
+
+                    {
+                        usuarios = new Usuarios();
+                        usuarios.setNome(editTNome.getText().toString());
+                        usuarios.setEmail(editTEmail.getText().toString());
+                        usuarios.setRecuperar(editTConSenha.getText().toString());
+                        usuarios.setSenha(editTSenha.getText().toString());
+
+                        cadastroDeUsuario();
+
+
+                    } else {
+
+                        Toast.makeText(CadastroActivity.this, "Senhas não conferem:", Toast.LENGTH_LONG).show();
                     }
 
-                }else {
-
-                    Toast.makeText(CadastroActivity.this, "Senhas não conferem:", Toast.LENGTH_LONG).show();
                 }
+
             }
         });
+        /*btnSalvar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                if (!editTEmail.getText().toString().equals("")) {
+
+                    Toast.makeText(CadastroActivity.this, "Preencha todos os campos.", Toast.LENGTH_LONG).show();
+                } else if (!editTSenha.getText().toString().equals("") || !editTNome.getText().toString().equals("") || !editTConSenha.getText().toString().equals("")) {
+
+                    Toast.makeText(CadastroActivity.this, "Preencha todos os campos.", Toast.LENGTH_LONG).show();
+                } else {
+                    if (editTSenha.getText().toString().equals(editTConSenha.getText().toString())) {
+                        usuarios = new Usuarios();
+                        usuarios.setNome(editTNome.getText().toString());
+                        usuarios.setEmail(editTEmail.getText().toString());
+                        usuarios.setRecuperar(editTConSenha.getText().toString());
+                        usuarios.setSenha(editTSenha.getText().toString());
+
+                        cadastroDeUsuario();
+
+
+                    } else {
+
+                        Toast.makeText(CadastroActivity.this, "Senhas não conferem:", Toast.LENGTH_LONG).show();
+                    }
+                }
+            }
+        });*/
 
         floaActionBtnSalavr.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -91,63 +130,57 @@ public class CadastroActivity extends AppCompatActivity {
 
     }
 
-    private void cadastroDeUsuario(){
+    private void cadastroDeUsuario() {
 
-     autenticacao = ConfiguracaoFirebase.getFirebaseAutenticacao();
-     autenticacao.createUserWithEmailAndPassword(
+        autenticacao = ConfiguracaoFirebase.getFirebaseAutenticacao();
+        autenticacao.createUserWithEmailAndPassword(
 
-             usuarios.getEmail(),
-             usuarios.getSenha()
-     ).addOnCompleteListener(CadastroActivity.this, new OnCompleteListener<AuthResult>() {
-         @Override
-         public void onComplete(@NonNull Task<AuthResult> task) {
+                usuarios.getEmail(),
+                usuarios.getSenha()
+        ).addOnCompleteListener(CadastroActivity.this, new OnCompleteListener<AuthResult>() {
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
 
-             if (task.isSuccessful()){
+                if (task.isSuccessful()) {
 
-                 Toast.makeText(CadastroActivity.this,"Usuário cadastrado com sucesso", Toast.LENGTH_LONG).show();
+                    Toast.makeText(CadastroActivity.this, "Usuário cadastrado com sucesso", Toast.LENGTH_LONG).show();
 
-                 String identificadorUsuario = Base64Custom.codificarBase64(usuarios.getEmail());
-                 FirebaseUser usuarioFirebase = task.getResult().getUser();
-                 usuarios.setId(identificadorUsuario);
-                 usuarios.salvar();
+                    String identificadorUsuario = Base64Custom.codificarBase64(usuarios.getEmail());
+                    FirebaseUser usuarioFirebase = task.getResult().getUser();
+                    usuarios.setId(identificadorUsuario);
+                    usuarios.salvar();
 
-                 Preferencias preferenciasAndroid = new Preferencias(CadastroActivity.this);
-                 preferenciasAndroid.salvarUsuarioPreferencias(identificadorUsuario, usuarios.getNome());
+                    Preferencias preferenciasAndroid = new Preferencias(CadastroActivity.this);
+                    preferenciasAndroid.salvarUsuarioPreferencias(identificadorUsuario, usuarios.getNome());
 
-                 //abrirLogin();
-
-             }else if (!editTEmail.getText().toString().equals("") || !editTSenha.getText().toString().equals("")
-                     || !editTNome.getText().toString().equals("") || !editTConSenha.getText().toString().equals("")){
-
-                 Toast.makeText(CadastroActivity.this,"Preencha todos os campos.", Toast.LENGTH_LONG).show();
+                    //abrirLogin();
 
 
+                } else {
+                    String erroExecao = "";
+                    try {
 
-             }else {
-                 String erroExecao = "";
-                 try {
+                        throw task.getException();
 
-                     throw task.getException();
+                    } catch (FirebaseAuthWeakPasswordException e) {
+                        erroExecao = "Digite uma senha mais forte contendo minimo de 8 caracteres ente letras e números";
 
-                 } catch (FirebaseAuthWeakPasswordException e) {
-                     erroExecao = "Digite uma senha mais forte contendo minimo de 8 caracteres ente letras e números";
+                    } catch (FirebaseAuthInvalidCredentialsException e) {
+                        erroExecao = "O email digitado é inválido! Digite um novo email.";
 
-                 } catch (FirebaseAuthInvalidCredentialsException e) {
-                     erroExecao = "O email digitado é inválido! Digite um novo email.";
+                    } catch (FirebaseAuthUserCollisionException e) {
+                        switch (erroExecao = "Este email já está cadastrado no sistema.") {
+                        }
 
-                 } catch (FirebaseAuthUserCollisionException e) {
-                     switch (erroExecao = "Este email já está cadastrado no sistema.") {
-                     }
+                    } catch (Exception e) {
+                        erroExecao = "Erro ao efetuar o cadastro!";
+                        e.printStackTrace();
+                    }
+                    Toast.makeText(CadastroActivity.this, "Erro:" + erroExecao, Toast.LENGTH_LONG).show();
 
-                 } catch (Exception e) {
-                     erroExecao = "Erro ao efetuar o cadastro!";
-                     e.printStackTrace();
-                 }
-                 Toast.makeText(CadastroActivity.this, "Erro:" + erroExecao, Toast.LENGTH_LONG).show();
-
-             }
-         }
-     });
+                }
+            }
+        });
 
     }
 }

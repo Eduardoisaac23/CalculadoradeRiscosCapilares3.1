@@ -49,19 +49,20 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
-        textVRecSenha.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent abrirRecSenha = new Intent( LoginActivity.this,  RecuperarSenhaActivity .class );
-                startActivity(abrirRecSenha);
-            }
-        });
+        textVRecSenha.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent abrirRecSenha = new Intent(LoginActivity.this, RecuperarSenhaActivity.class);
+                        startActivity(abrirRecSenha);
+                    }
+                });
 
         btnLogar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                if(!editTEmail.getText().toString().equals("") || !editTSenha.getText().toString().equals("")){
+                if (!editTEmail.getText().toString().equals("") || !editTSenha.getText().toString().equals("")) {
 
                     usuarios = new Usuarios();
                     usuarios.setEmail(editTEmail.getText().toString());
@@ -74,36 +75,36 @@ public class LoginActivity extends AppCompatActivity {
                 }
 
 
-
             }
         });
 
 
     }
-    private void valiadrlogin(){
+
+    private void valiadrlogin() {
 
         autenticacao = ConfiguracaoFirebase.getFirebaseAutenticacao();
-        autenticacao.signInWithEmailAndPassword(usuarios.getEmail(),usuarios.getSenha()).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-            @Override
-            public void onComplete(@NonNull Task<AuthResult> task) {
-                if(task.isSuccessful()){
+        autenticacao.signInWithEmailAndPassword(usuarios.getEmail(), usuarios.getSenha()).addOnCompleteListener(
+                new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()) {
 
-                    telaHistorico();
+                            telaHistorico();
 
-                    Toast.makeText(LoginActivity.this, "login efetuado com sucesso.",Toast.LENGTH_LONG).show();
-                }else{
-                    Toast.makeText(LoginActivity.this, "Usuário ou senha inválidos.",Toast.LENGTH_LONG).show();
-                }
-            }
-        });
+                            Toast.makeText(LoginActivity.this, "login efetuado com sucesso.", Toast.LENGTH_LONG).show();
+                        } else {
+                            Toast.makeText(LoginActivity.this, "Usuário ou senha inválidos.", Toast.LENGTH_LONG).show();
+                        }
+                    }
+                });
     }
 
-    private void telaHistorico(){
-        Intent intent = new  Intent(LoginActivity.this, MenuActivity.class);
+    private void telaHistorico() {
+        Intent intent = new Intent(LoginActivity.this, MenuActivity.class);
         startActivity(intent);
         finish();
-  }
-
+    }
 
 
 }

@@ -73,13 +73,11 @@ public class ProcedimentosActivity extends AppCompatActivity {
     int total = 0;*/
 
 
-
-
-   // private DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
-   // private   DatabaseReference procedimentosReference  = databaseReference.child("Procedimentos");
+    // private DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
+    // private   DatabaseReference procedimentosReference  = databaseReference.child("Procedimentos");
 
     // Estancias dos fragmentos
-   private SexoFragment sexoFragment;
+    private SexoFragment sexoFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -88,7 +86,7 @@ public class ProcedimentosActivity extends AppCompatActivity {
 
         sexoFragment = new SexoFragment();
         FragmentTransaction transacoaSexo = getSupportFragmentManager().beginTransaction();
-        transacoaSexo.replace(R.id.contProcedimentoId,sexoFragment);
+        transacoaSexo.replace(R.id.contProcedimentoId, sexoFragment);
         transacoaSexo.commit();
 
 

@@ -10,37 +10,31 @@ public class ProcedimentosPreferencias {
     private Context context;
     private SharedPreferences preferences;
     private String NOME_ARQUIVO = "ConfiguracaoFirebase";
-    private int MODE =0;
+    private int MODE = 0;
     private SharedPreferences.Editor editor;
 
 
-
     //Instancias variaveis
-    private int id;
+    private String id;
     private String sexo;              // Masculino feminino
     private boolean gestante;        // Sim não
     private String tipocabelo;      // Liso, Ondulado, Cacheado, Crespo
-    private String quimidesejada;    // Alisamento, colorção, Descoloração, Permanente
+    private Boolean quimidesejada;    // Alisamento, colorção, Descoloração, Permanente
     private String quimicatual;// Alisamento, colorção, Descoloração, Permanente
     private boolean baseigual;    // Sim Não
     private boolean alergia;     // sim Não
     private boolean testemechas;// escamação, coçeiras, irritabilidade capilar
     private boolean quimiTrans;
-
-
-
-
-
-
+    private boolean danoscapilares;
     private String tempoaplicacao;
+
 
     private int contaBotaoSexo = 0;
 
 
-
     public ProcedimentosPreferencias(Context context) {
         this.context = context;
-        preferences = context.getSharedPreferences(NOME_ARQUIVO,MODE);
+        preferences = context.getSharedPreferences(NOME_ARQUIVO, MODE);
 
         editor = preferences.edit();
         editor.apply();
@@ -49,7 +43,7 @@ public class ProcedimentosPreferencias {
     //getters settres
     public String getSexo() {
 
-        return preferences.getString("Sexo", null);
+        return preferences.getString("Sexo", "");
     }
 
     public void setSexo(String sexo) {
@@ -58,14 +52,14 @@ public class ProcedimentosPreferencias {
         editor.commit();
     }
 
-    public boolean isGestante() {
+    public boolean getGestante() {
 
         return preferences.getBoolean("Gestante", false);
     }
 
     public void setGestante(boolean gestante) {
 
-        editor.putBoolean("Gestante", gestante);
+        editor.putBoolean("Gestante", false);
         editor.commit();
     }
 
@@ -76,13 +70,13 @@ public class ProcedimentosPreferencias {
 
     public void setTipocabelo(String tipocabelo) {
 
-        editor.putString("Tipo cabelo",tipocabelo);
+        editor.putString("Tipo cabelo", tipocabelo);
         editor.commit();
     }
 
     public String getQuimidesejada() {
 
-        return preferences.getString("Quimica desejada","");
+        return preferences.getString("Quimica desejada", "");
     }
 
     public void setQuimidesejada(String quimidesejada) {
@@ -99,8 +93,8 @@ public class ProcedimentosPreferencias {
         editor.commit();
     }
 
-    public boolean isBaseigual() {
-        return preferences.getBoolean("Base igual",false);
+    public boolean getBaseigual() {
+        return preferences.getBoolean("baseiguais", false);
     }
 
     public void setBaseigual(boolean baseigual) {
@@ -109,16 +103,16 @@ public class ProcedimentosPreferencias {
     }
 
     public boolean isAlergia() {
-        return preferences.getBoolean("Alergia",false);
+        return preferences.getBoolean("Alergia", false);
     }
 
     public void setAlergia(boolean alergia) {
-        editor.putBoolean("alergia",alergia);
+        editor.putBoolean("alergia", alergia);
         editor.commit();
     }
 
-    public boolean getTestemechas() {
-        return preferences.getBoolean("Teste de mechas", false);
+    public boolean isTestemechas() {
+        return preferences.getBoolean("Testedemechas", false);
     }
 
     public void setTestemechas(boolean testemechas) {
@@ -128,52 +122,76 @@ public class ProcedimentosPreferencias {
 
 
     public int getContaBotaoSexo() {
-        return    preferences.getInt("Botao Sexo", 0 ) ;
+        return preferences.getInt("BotaoSexo", 0);
     }
 
     public void setContaBotaoSexo(int contaBotaoSexo) {
-        editor.putInt("Botao Sexo",contaBotaoSexo );
+        editor.putInt("BotaoSexo", contaBotaoSexo);
         editor.commit();
     }
+
     public String getTempoAplicacao() {
-        return preferences.getString("Aplicacao","");
+        return preferences.getString("Aplicacao", "");
     }
 
     public void setTempoAplicacao(String aplicacao) {
         editor.putString("Aplicacao", aplicacao);
         editor.commit();
     }
-    public int getId() {
-        return preferences.getInt("identificacao",0);
+
+    public String getId() {
+        return preferences.getString("identificacao", "");
     }
 
-    public void setId(int id) {
-        editor.putInt("identificacao", id);
+    public void setId(String id) {
+        editor.putString("identificacao", id);
         editor.commit();
     }
 
     public boolean isQuimiTrans() {
-        return preferences.getBoolean("Quimica de transformacao",false);
+        return preferences.getBoolean("Quimicadetransformacao", false);
     }
 
     public void setQuimiTrans(boolean quimiTrans) {
-        editor.putBoolean("Quimica de transformacao", false);
+        editor.putBoolean("Quimicadetransformacao", false);
+        editor.commit();
+    }
+
+    public boolean isDanoscapilares() {
+        return preferences.getBoolean("Danoscapilares", false);
+    }
+
+    public void setDanoscapilares(boolean danoscapilares) {
+        editor.putBoolean("Danoscapilares", false);
         editor.commit();
     }
 
 
-    public void apagarPreferecias(){
+    public void apagarPreferecias() {
         editor.putString("Sexo", "");
         editor.putBoolean("Gestante", false);
-        editor.putString("Tipo cabelo","");
-        editor.putString("Quimica desejada", "");
+        editor.putString("Tipocabelo", "");
+        editor.putString("Quimicadesejada", "");
         editor.putString("Aplicacao", "");
-        editor.putString("Quimica anterior", "");
-        editor.putBoolean("Base igual", false);
+        editor.putString("Quimicaanterior", "");
+        editor.putBoolean("Baseigual", false);
         editor.putBoolean("alergia", false);
-        editor.putBoolean("Teste de mecha", false);
+        editor.putBoolean("Testedemecha", false);
+        editor.putBoolean("danoscapilares", false);
         editor.commit();
 
     }
 }
 
+/*
+ exemplo de boolean
+
+  public boolean isAlergia() {
+        return preferences.getBoolean("Alergia",false);
+    }
+
+    public void setAlergia(boolean alergia) {
+        editor.putBoolean("alergia",alergia);
+        editor.commit();
+    }
+ */

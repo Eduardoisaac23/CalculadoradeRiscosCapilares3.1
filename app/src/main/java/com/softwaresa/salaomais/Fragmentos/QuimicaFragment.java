@@ -62,7 +62,6 @@ public class QuimicaFragment extends Fragment {
     private Procedimentos salvarBasesiguai;
 
 
-
     public QuimicaFragment() {
         // Required empty public constructor
     }
@@ -103,16 +102,14 @@ public class QuimicaFragment extends Fragment {
         procedimentosPreferencias = new ProcedimentosPreferencias(getActivity());
 
         toqueMechasFragment = new ToqueMechasFragment();
-        salvarProcedimentosQuimicaTransformacao  = new Procedimentos();
-        salvarProcedimentosQuimiDesejada  = new Procedimentos();
+        salvarProcedimentosQuimicaTransformacao = new Procedimentos();
+        salvarProcedimentosQuimiDesejada = new Procedimentos();
         salvarProcedimentosQumiAtual = new Procedimentos();
         salvarProcedimentosBaseigual = new Procedimentos();
         salvarBasesiguai = new Procedimentos();
 
 
-
-
-                rgQuimicatrans.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+        rgQuimicatrans.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
 
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
@@ -120,19 +117,6 @@ public class QuimicaFragment extends Fragment {
                     frameQuimiPossui.setVisibility(View.GONE);
                     //frameTempo.setVisibility(View.VISIBLE);
                     frameQuimi2.setVisibility(View.VISIBLE);
-
-                    //salvando firebase--------------------------------
-
-
-                   salvarProcedimentosQuimicaTransformacao.setId(procedimentosPreferencias.getId()+1);
-
-                    salvarProcedimentosQuimicaTransformacao.setCabelo(procedimentosPreferencias.getTipocabelo()); //trocar
-
-                   salvarProcedimentosQuimicaTransformacao.salvar();
-                    procedimentosPreferencias.apagarPreferecias();
-
-                    //---------------------------------
-
 
 
 
@@ -142,17 +126,7 @@ public class QuimicaFragment extends Fragment {
                     //frameQuimiPossui.setVisibility(View.GONE);
                     frameQuimi2.setVisibility(View.GONE);
 
-                    //salvando firebase--------------------------------
 
-
-                    salvarProcedimentosQuimicaTransformacao.setId(procedimentosPreferencias.getId()+1);
-
-                    salvarProcedimentosQuimicaTransformacao.setCabelo(procedimentosPreferencias.getTipocabelo()); //trocar
-
-                    salvarProcedimentosQuimicaTransformacao.salvar();
-                    procedimentosPreferencias.apagarPreferecias();
-
-                    //---------------------------------
 
                 }
             }
@@ -171,38 +145,21 @@ public class QuimicaFragment extends Fragment {
                     procedimentosPreferencias.setQuimidesejada("alisamento");
 
 
-                        if (procedimentosPreferencias.getQuimicatual().equals("alisamento")) {
+                    if (procedimentosPreferencias.getQuimicatual().equals("alisamento")) {
 
-                            frameBase.setVisibility(View.VISIBLE);
-
-                           /* //salvando firebase--------------------------------
+                        frameBase.setVisibility(View.VISIBLE);
 
 
-                            salvarProcedimentosQuimiDesejada.setId(procedimentosPreferencias.getId()+1);
 
-                            salvarProcedimentosQuimiDesejada.setCabelo(procedimentosPreferencias.getQuimidesejada()); //trocar
-
-                            salvarProcedimentosQuimiDesejada.salvar();
-                            procedimentosPreferencias.apagarPreferecias();
-
-                            //---------------------------------*/
-
-                        } else {
-                            //salvando firebase--------------------------------
+                    } else {
 
 
-                            salvarProcedimentosQuimiDesejada.setId(procedimentosPreferencias.getId()+1);
 
-                            salvarProcedimentosQuimiDesejada.setCabelo(procedimentosPreferencias.getQuimidesejada()); //trocar
 
-                            salvarProcedimentosQuimiDesejada.salvar();
-                            procedimentosPreferencias.apagarPreferecias();
-
-                            //---------------------------------
-                            FragmentTransaction tansacaotoquemechas = getFragmentManager().beginTransaction();
-                            tansacaotoquemechas.replace(R.id.contProcedimentoId, toqueMechasFragment);
-                            tansacaotoquemechas.commit();
-                        }
+                        FragmentTransaction tansacaotoquemechas = getFragmentManager().beginTransaction();
+                        tansacaotoquemechas.replace(R.id.contProcedimentoId, toqueMechasFragment);
+                        tansacaotoquemechas.commit();
+                    }
 
 
                     //RaioButton Coloração 1------------------------------------------------------------------------
@@ -210,22 +167,12 @@ public class QuimicaFragment extends Fragment {
                 } else if (checkedId == R.id.rbCol1Id) {
 
                     procedimentosPreferencias.setQuimidesejada("coloracao");
-                    //salvando firebase--------------------------------
 
 
-                    salvarProcedimentosQuimiDesejada.setId(procedimentosPreferencias.getId()+1);
+                    if (procedimentosPreferencias.getQuimicatual().equals("coloracao")) {
+                        frameBase.setVisibility(View.VISIBLE);
 
-                    salvarProcedimentosQuimiDesejada.setCabelo(procedimentosPreferencias.getQuimidesejada()); //trocar
-
-                    salvarProcedimentosQuimiDesejada.salvar();
-                    procedimentosPreferencias.apagarPreferecias();
-
-                    //---------------------------------
-
-                        if (procedimentosPreferencias.getQuimicatual().equals("coloracao")) {
-                            frameBase.setVisibility(View.VISIBLE);
-
-                        }
+                    }
 
 
                     //RaioButton Descoloração 1------------------------------------------------------------------
@@ -233,35 +180,13 @@ public class QuimicaFragment extends Fragment {
                 } else if (checkedId == R.id.rbDes1Id) {
 
                     procedimentosPreferencias.setQuimidesejada("descoloracao");
-                    //salvando firebase--------------------------------
 
-
-                    salvarProcedimentosQuimiDesejada.setId(procedimentosPreferencias.getId()+1);
-
-                    salvarProcedimentosQuimiDesejada.setCabelo(procedimentosPreferencias.getQuimidesejada()); //trocar
-
-                    salvarProcedimentosQuimiDesejada.salvar();
-                   // procedimentosPreferencias.apagarPreferecias();
-
-                    //---------------------------------
                     if (procedimentosPreferencias.getQuimicatual().equals("descoloracao")) {
                         frameBase.setVisibility(View.VISIBLE);
 
 
-
                     } else {
 
-                        //salvando firebase--------------------------------
-
-
-                        salvarProcedimentosQuimiDesejada.setId(procedimentosPreferencias.getId()+1);
-
-                        salvarProcedimentosQuimiDesejada.setCabelo(procedimentosPreferencias.getQuimidesejada()); //trocar
-
-                        salvarProcedimentosQuimiDesejada.salvar();
-                        //procedimentosPreferencias.apagarPreferecias();
-
-                        //---------------------------------
 
                         FragmentTransaction tansacaotoquemechas = getFragmentManager().beginTransaction();
                         tansacaotoquemechas.replace(R.id.contProcedimentoId, toqueMechasFragment);
@@ -277,35 +202,11 @@ public class QuimicaFragment extends Fragment {
 
                     if (procedimentosPreferencias.getQuimicatual().equals("permanente")) {
                         frameBase.setVisibility(View.VISIBLE);
-                        //salvando firebase--------------------------------
-
-
-                        salvarProcedimentosQuimiDesejada.setId(procedimentosPreferencias.getId()+1);
-
-                        salvarProcedimentosQuimiDesejada.setCabelo(procedimentosPreferencias.getQuimidesejada()); //trocar
-
-                        salvarProcedimentosQuimiDesejada.salvar();
-                       // procedimentosPreferencias.apagarPreferecias();
-
-                        //---------------------------------
 
 
 
                     } else {
                         frameBase.setVisibility(View.GONE);
-
-                        //salvando firebase--------------------------------
-
-
-                        salvarProcedimentosQuimiDesejada.setId(procedimentosPreferencias.getId()+1);
-
-                        salvarProcedimentosQuimiDesejada.setCabelo(procedimentosPreferencias.getQuimidesejada()); //trocar
-
-                        salvarProcedimentosQuimiDesejada.salvar();
-                       // procedimentosPreferencias.apagarPreferecias();
-
-                        //---------------------------------
-
 
                         FragmentTransaction tansacaotoquemechas = getFragmentManager().beginTransaction();
                         tansacaotoquemechas.replace(R.id.contProcedimentoId, toqueMechasFragment);
@@ -328,17 +229,6 @@ public class QuimicaFragment extends Fragment {
                     frameQuimi1.setVisibility(View.VISIBLE);
                     // frameTempo.setVisibility(View.VISIBLE);
                     frameQuimi2.setVisibility(View.GONE);
-                    //salvando firebase--------------------------------
-
-
-                    salvarProcedimentosQumiAtual.setId(procedimentosPreferencias.getId()+1);
-
-                    salvarProcedimentosQumiAtual.setCabelo(procedimentosPreferencias.getQuimicatual()); //trocar
-
-                    salvarProcedimentosQumiAtual.salvar();
-                   // procedimentosPreferencias.apagarPreferecias();
-
-                    //---------------------------------
 
 
 
@@ -348,19 +238,6 @@ public class QuimicaFragment extends Fragment {
                     frameQuimi1.setVisibility(View.VISIBLE);
                     //frameTempo.setVisibility(View.VISIBLE);
                     frameQuimi2.setVisibility(View.GONE);
-                    //salvando firebase--------------------------------
-
-
-                    salvarProcedimentosQumiAtual.setId(procedimentosPreferencias.getId()+1);
-
-                    salvarProcedimentosQumiAtual.setCabelo(procedimentosPreferencias.getQuimicatual()); //trocar
-
-                    salvarProcedimentosQumiAtual.salvar();
-                   // procedimentosPreferencias.apagarPreferecias();
-
-                    //---------------------------------
-
-
 
 
 
@@ -370,17 +247,7 @@ public class QuimicaFragment extends Fragment {
                     frameQuimi1.setVisibility(View.VISIBLE);
                     //frameTempo.setVisibility(View.VISIBLE);
                     frameQuimi2.setVisibility(View.GONE);
-                    //salvando firebase--------------------------------
 
-
-                    salvarProcedimentosQumiAtual.setId(procedimentosPreferencias.getId()+1);
-
-                    salvarProcedimentosQumiAtual.setCabelo(procedimentosPreferencias.getQuimicatual()); //trocar
-
-                    salvarProcedimentosQumiAtual.salvar();
-                  //  procedimentosPreferencias.apagarPreferecias();
-
-                    //---------------------------------
 
 
 
@@ -392,18 +259,6 @@ public class QuimicaFragment extends Fragment {
                     frameQuimi1.setVisibility(View.VISIBLE);
                     // frameTempo.setVisibility(View.VISIBLE);
                     frameQuimi2.setVisibility(View.GONE);
-                    //salvando firebase--------------------------------
-
-
-                    salvarProcedimentosQumiAtual.setId(procedimentosPreferencias.getId()+1);
-
-                    salvarProcedimentosQumiAtual.setCabelo(procedimentosPreferencias.getQuimicatual()); //trocar
-
-                    salvarProcedimentosQumiAtual.salvar();
-                   // procedimentosPreferencias.apagarPreferecias();
-
-                    //---------------------------------
-
 
 
 
@@ -444,17 +299,6 @@ public class QuimicaFragment extends Fragment {
                     procedimentosPreferencias.setBaseigual(true);
                     //Toast.makeText(getActivity(), String.valueOf(checkedId), Toast.LENGTH_SHORT).show();
 
-                    //salvando firebase--------------------------------
-
-
-                    salvarProcedimentosBaseigual.setId(procedimentosPreferencias.getId()+1);
-
-                    salvarProcedimentosBaseigual.setCabelo(procedimentosPreferencias.getQuimicatual()); //trocar por base
-
-                    salvarProcedimentosBaseigual.salvar();
-                    procedimentosPreferencias.apagarPreferecias();
-
-                    //---------------------------------
                     FragmentTransaction tansacaotoquemechas = getFragmentManager().beginTransaction();
                     tansacaotoquemechas.replace(R.id.contProcedimentoId, toqueMechasFragment);
                     tansacaotoquemechas.commit();
@@ -464,13 +308,12 @@ public class QuimicaFragment extends Fragment {
                     procedimentosPreferencias.setBaseigual(false);
                     //Toast.makeText(getActivity(), String.valueOf(checkedId), Toast.LENGTH_SHORT).show();
 
-                    salvarProcedimentosBaseigual.setId(procedimentosPreferencias.getId()+1);
+                    salvarProcedimentosBaseigual.setId(procedimentosPreferencias.getId() + 1);
 
                     salvarProcedimentosBaseigual.setCabelo(procedimentosPreferencias.getQuimicatual()); //trocar por base
 
-                    salvarProcedimentosBaseigual.salvar();
+                    //salvarProcedimentosBaseigual.salvar();
                     procedimentosPreferencias.apagarPreferecias();
-
 
 
                     AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());

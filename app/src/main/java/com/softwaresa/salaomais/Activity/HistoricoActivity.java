@@ -19,12 +19,12 @@ public class HistoricoActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_historico);
 
-        proximo=findViewById(R.id.floActproximo);
+        proximo = findViewById(R.id.floActproximo);
 
         proximo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent  intentproximo = new  Intent(HistoricoActivity.this, MenuActivity.class);
+                Intent intentproximo = new Intent(HistoricoActivity.this, MenuActivity.class);
                 startActivity(intentproximo);
 
             }
